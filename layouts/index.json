@@ -1,8 +1,16 @@
+{{- /* 1. DEFINIÇÃO DAS ENTIDADES */ -}}
 {{- $org := dict "@type" "Organization" "name" .Site.Title "url" .Site.BaseURL "logo" (absURL "imagens/logo.png") "award" .Site.Params.premio "slogan" .Site.Params.slogan -}}
 {{- $person := dict "@type" "Person" "name" .Site.Params.author "jobTitle" "Chef de Criação" "knowsAbout" (slice "Gastronomia Desidratada" "Psicologia" "Nutrição" "Culinária Criativa") -}}
+
+{{- /* 2. MAPEAMENTO DOS 24 SABORES */ -}}
 {{- $items := slice -}}
 {{- range (where .Site.RegularPages "Section" "receitas") -}}
     {{- $items = $items | append (dict "@type" "Product" "name" .Title "sku" .Params.sku "offers" (dict "@type" "Offer" "price" "132.00" "priceCurrency" "BRL")) -}}
 {{- end -}}
-{{- $catalog := dict "@type" "OfferCatalog" "name" "Catálogo ChefBox" "itemListElement" $items -}}
-{{- dict "@context" "https://schema.org" "@graph" (slice $org $person $catalog) | jsonify -}}
+
+{{- /* 3. MONTAGEM DO GRAFO FINAL */ -}}
+{{- $catalog := dict "@type" "OfferCatalog" "name" "Cardápio ChefBox" "itemListElement" $items -}}
+{{- $graph := dict "@context" "https://schema.org" "@graph" (slice $org $person $catalog) -}}
+
+{{- /* 4. IMPRESSÃO LIMPA */ -}}
+{{- $graph | jsonify -}}

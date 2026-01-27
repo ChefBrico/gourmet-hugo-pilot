@@ -1,0 +1,12 @@
+[build]
+  publish = "public"
+  command = "hugo --gc --minify"
+
+[build.environment]
+  HUGO_VERSION = "0.121.0" # Versão estável 2026
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/clube/*"
+  to = "/chefbox/"
+  status = 301

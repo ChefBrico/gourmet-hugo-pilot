@@ -1,17 +1,11 @@
 baseURL = "https://gourmetpratico.com.br"
 languageCode = "pt-br"
-title = "Gourmet Prático | Chef Maria Conceição"
+title = "Gourmet Prático | ChefBrico"
 
 [params]
-    slogan = "Gourmet Prático é uma culinária saudável, sem desperdício de Tempo e Ingredientes na Cozinha!"
+    slogan = "Gourmet Prático é uma culinária saudável, sem desperdício de Tempo e Ingredientes na sua Cozinha!"
     author = "Maria Conceição"
     premio = "Vencedora do Prêmio Sebrae Mulher de Negócios"
     whatsapp = "5561996659880"
     preco_kit = 132.00
-
-[menu]
-    # Menu Esquerdo (Autoridade)
-    [[menu.main]]
-        name = "O Método"
-        url = "/metodo/"
-        weight = 1
+    cnpj = "36.014.833/0001-59"

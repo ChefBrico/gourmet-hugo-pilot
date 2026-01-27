@@ -1,38 +1,8 @@
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "name": "{{ .Site.Title }}",
-      "url": "{{ .Site.BaseURL }}",
-      "logo": "{{ .Site.BaseURL }}imagens/logo.png",
-      "award": "{{ .Site.Params.premio }}",
-      "slogan": "{{ .Site.Params.slogan }}"
-    },
-    {
-      "@type": "Person",
-      "name": "{{ .Site.Params.author }}",
-      "jobTitle": "Chef de Criação",
-      "knowsAbout": ["Culinaria Criativa",Sem Desperdicio na Cozinha", "Gastronomia Desidratada", "Psicologia", "Nutrição"]
-    },
-    {
-      "@type": "OfferCatalog",
-      "name": "Catálogo ChefBox",
-      "itemListElement": [
-        {{ range $index, $element := (where .Site.RegularPages "Section" "receitas") }}
-        {{ if $index }},{{ end }}
-        {
-          "@type": "Product",
-          "name": "{{ .Title }}",
-          "sku": "{{ .Params.sku }}",
-          "offers": {
-            "@type": "Offer",
-            "price": "132.00",
-            "priceCurrency": "BRL"
-          }
-        }
-        {{ end }}
-      ]
-    }
-  ]
-}
+{{- $org := dict "@type" "Organization" "name" .Site.Title "url" .Site.BaseURL "logo" (absURL "imagens/logo.png") "award" .Site.Params.premio "slogan" .Site.Params.slogan -}}
+{{- $person := dict "@type" "Person" "name" .Site.Params.author "jobTitle" "Chef de Criação" "knowsAbout" (slice "Gastronomia Desidratada" "Psicologia" "Nutrição" "Culinária Criativa") -}}
+{{- $items := slice -}}
+{{- range (where .Site.RegularPages "Section" "receitas") -}}
+    {{- $items = $items | append (dict "@type" "Product" "name" .Title "sku" .Params.sku "offers" (dict "@type" "Offer" "price" "132.00" "priceCurrency" "BRL")) -}}
+{{- end -}}
+{{- $catalog := dict "@type" "OfferCatalog" "name" "Catálogo ChefBox" "itemListElement" $items -}}
+{{- dict "@context" "https://schema.org" "@graph" (slice $org $person $catalog) | jsonify -}}

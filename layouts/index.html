@@ -1,0 +1,53 @@
+{{ define "main" }}
+<!-- 1. HERO SECTION (IMPACTO FOOD PORN) -->
+<section class="hero-editorial" style="background: var(--cor-verde); color: white; padding: 80px 20px; text-align: center;">
+    <div class="container">
+        <span style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; color: var(--cor-dourado);">Experiência ChefBrico</span>
+        <h1 style="color: white; font-size: 3rem; margin-top: 20px;">O Sabor da Alta Gastronomia,<br>no Conforto do seu Lar.</h1>
+        <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 20px auto;">Refeições 100% naturais prontas em 18 minutos. <br>Sua cozinha com afeto e zero desperdício.</p>
+        <a href="/chefbox/" class="btn-chefbox" style="margin-top: 30px; display: inline-block;">MONTAR MINHA CHEFBOX ➜</a>
+    </div>
+</section>
+
+<!-- 2. O MANTRA (CARD DE AUTORIDADE) -->
+<section class="mantra-card">
+    <p class="mantra-text">
+        "{{ .Site.Params.slogan }}"
+    </p>
+    <div style="margin-top: 20px;">
+        <img src="/imagens/assinatura-maria-dourada.png" alt="Assinatura Maria" style="height: 50px; opacity: 0.7; margin: 0 auto;">
+        <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--cor-dourado); font-weight: 700; margin-top: 10px;">Chef Maria Conceição</p>
+    </div>
+</section>
+
+<div class="container">
+    <!-- 3. A TRILHA DO MÉTODO (CARROSSEL BOUTIQUE) -->
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 20px; border-bottom: 1px solid var(--cor-dourado); padding-bottom: 10px;">
+        <h2 style="margin:0; font-size: 1.8rem;">A Trilha do Método</h2>
+        <span style="font-size: 0.7rem; color: var(--cor-dourado); font-weight: bold; text-transform: uppercase;">Deslize ➝</span>
+    </div>
+
+    <div class="carousel-container">
+        {{ range (where .Site.RegularPages "Section" "metodo") }}
+        <div class="card">
+            <a href="{{ .Permalink }}">
+                <div class="boutique-frame">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                </div>
+                <h3 style="font-size: 1rem; color: var(--cor-verde); line-height: 1.2;">{{ .Title }}</h3>
+            </a>
+        </div>
+        {{ end }}
+    </div>
+
+    <!-- 4. CTA DE TRANSIÇÃO PARA O CARDÁPIO -->
+    <section style="text-align: center; margin: 80px 0; padding: 60px; background: #fdf6e3; border-radius: 15px; border: 1px solid var(--cor-dourado);">
+        <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Descubra Nossos 24 Sabores</h2>
+        <p style="color: #666; margin-bottom: 35px; font-size: 1.1rem;">De Risotos Italianos a Sopas Funcionais. Tudo pronto em 18 minutos.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="/receitas/" class="nav-link" style="background: white; color: var(--cor-verde); padding: 15px 40px; border-radius: 50px; border: 1px solid #ddd; font-weight: bold;">VER CARDÁPIO COMPLETO</a>
+            <a href="/chefbox/" class="btn-chefbox" style="padding: 15px 40px;">MONTAR CHEFBOX (4+1)</a>
+        </div>
+    </section>
+</div>
+{{ end }}

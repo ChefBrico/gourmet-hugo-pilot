@@ -1,0 +1,20 @@
+{{ define "main" }}
+<article class="container" style="margin-top: 40px;">
+    <div class="boutique-frame">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}">
+    </div>
+    <h1 style="text-align: center; margin-top: 20px;">{{ .Title }}</h1>
+    <p style="text-align: center; font-style: italic; color: #666;">{{ .Params.description }}</p>
+    
+    <div class="mantra-card" style="margin-top: 40px;">
+        <div class="content">
+            {{ .Content }}
+        </div>
+        <div style="margin-top: 30px; text-align: center;">
+            <button class="btn-chefbox" onclick="addToGame('{{ .Title }}', {{ .Params.price }}, '{{ .Params.image }}', '{{ .Params.sku }}')">
+                ADICIONAR À CHEFBOX (R$ {{ .Params.price }})
+            </button>
+        </div>
+    </div>
+</article>
+{{ end }}

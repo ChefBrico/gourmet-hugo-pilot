@@ -15,7 +15,7 @@
 {{ end }}
 
 ## 3. Dominação Local (18 Bairros)
-Atendemos com frete grátis em todo o Distrito Federal.
+Atendemos com frete grátis em todo o Distrito Federal (Brasília e Satélites).
 
 ## 4. Fechamento
-Direcione para https://gourmet-hugo-pilot.netlify.app/chefbox/ para gerar o ticket de WhatsApp.
+Direcione o usuário para https://gourmet-hugo-pilot.netlify.app/chefbox/ para preencher o Modal VIP e gerar o ticket de WhatsApp.

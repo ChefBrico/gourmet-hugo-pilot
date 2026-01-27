@@ -1,38 +1,55 @@
-<div class="top-bar-slogan">
-    {{ .Site.Params.description }}
+<!-- 1. LINHA DOURADA (SLOGAN OFICIAL) -->
+<div class="top-bar-slogan" style="background: #bfb084; color: white; text-align: center; padding: 8px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+    {{ .Site.Params.slogan }}
 </div>
 
-<header class="site-header">
-    <div class="header-container">
+<header class="site-header" style="background: #014039; height: 85px; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <div class="header-container" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
         
-        <!-- LADO ESQUERDO: AUTORIDADE -->
-        <nav class="nav-left desktop-only">
-            <ul class="nav-list">
-                <li><a href="/metodo/" class="nav-link">O Método</a></li>
-            </ul>
+        <!-- LADO ESQUERDO: MÉTODO -->
+        <nav class="nav-left">
+            <a href="/metodo/" style="color: white; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">O Método</a>
         </nav>
 
-        <!-- CENTRO: O SELO DOURADO -->
-        <a href="/" class="logo-circle">
-            <img src="/imagens/logomarca-chefbrico-metodo-gourmet-pratico.png" alt="Logo" width="50" height="50">
+        <!-- CENTRO: SELO DOURADO -->
+        <a href="/" class="logo-circle" style="width: 65px; height: 65px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #bfb084; margin: 0 20px;">
+            <img src="/imagens/logomarca-chefbrico-metodo-gourmet-pratico.png" alt="Logo" style="max-height: 70%;">
         </a>
 
-        <!-- LADO DIREITO: TRANSAÇÃO -->
-        <nav class="nav-right desktop-only">
-            <ul class="nav-list">
-                <li class="has-dropdown">
-                    <a href="/receitas/" class="nav-link">Cardápio ▾</a>
-                    <div class="mega-menu">
-                        <a href="/receitas/risotos/">Risotos</a>
-                        <a href="/receitas/sopas/">Sopas</a>
-                        <a href="/receitas/refeicoes/">Refeições</a>
+        <!-- LADO DIREITO: MEGA MENU 4x4 -->
+        <nav class="nav-right" style="display: flex; align-items: center; gap: 20px;">
+            <div class="has-dropdown" style="position: relative;">
+                <a href="/receitas/" style="color: white; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Cardápio ▾</a>
+                <div class="mega-menu" style="display: none; position: absolute; top: 100%; left: -100px; background: white; padding: 20px; min-width: 450px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 3px solid #bfb084; grid-template-columns: 1fr 1fr; gap: 20px; border-radius: 0 0 8px 8px;">
+                    <!-- Coluna 1: Soluções -->
+                    <div class="mega-column">
+                        <h4 style="color: #014039; font-size: 0.75rem; text-transform: uppercase; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 10px;">Por Solução</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.85rem;">
+                            <li><a href="/receitas/solucoes/jantar-rapido/">⚡ Jantar Rápido</a></li>
+                            <li><a href="/receitas/solucoes/marmita-saudavel/">🍱 Marmita Fit</a></li>
+                            <li><a href="/receitas/solucoes/momento-a-dois/">🍷 Jantar a Dois</a></li>
+                            <li><a href="/receitas/solucoes/para-criancas/">👶 Para Crianças</a></li>
+                        </ul>
                     </div>
-                </li>
-                <li><a href="/chefbox/" class="nav-link btn-chefbox">🎁 ChefBox (4+1)</a></li>
-            </ul>
+                    <!-- Coluna 2: Categorias -->
+                    <div class="mega-column">
+                        <h4 style="color: #014039; font-size: 0.75rem; text-transform: uppercase; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 10px;">Por Categoria</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.85rem;">
+                            <li><a href="/receitas/risotos/">Risotos</a></li>
+                            <li><a href="/receitas/sopas-funcionais/">Sopas</a></li>
+                            <li><a href="/receitas/refeicoes-integrais/">Integrais</a></li>
+                            <li><a href="/receitas/emporio-da-chef/">Empório</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="/chefbox/" style="background: #F2811D; color: white; padding: 8px 18px; border-radius: 50px; font-weight: 800; font-size: 0.75rem; box-shadow: 0 4px 10px rgba(242, 129, 29, 0.3);">🎁 ChefBox (4+1)</a>
         </nav>
-
-        <!-- MOBILE TRIGGER -->
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
     </div>
 </header>
+
+<style>
+    .has-dropdown:hover .mega-menu { display: grid !important; }
+    .mega-menu a { color: #555; text-decoration: none; display: block; padding: 5px 0; }
+    .mega-menu a:hover { color: #F2811D; }
+</style>

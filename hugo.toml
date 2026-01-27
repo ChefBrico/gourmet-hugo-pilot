@@ -1,37 +1,17 @@
-baseURL = "https://gourmetpratico.com.br" # No piloto, o Netlify dará outra URL
+baseURL = "https://gourmetpratico.com.br"
 languageCode = "pt-br"
-title = "Gourmet Prático | A-Commerce Web 3.0"
-theme = "" # Não usaremos temas prontos, construiremos o nosso (Boutique)
+title = "Gourmet Prático | Chef Maria Conceição"
 
 [params]
-    description = "Culinária saudável, sem desperdício de tempo e ingredientes."
+    slogan = "Gourmet Prático é uma culinária saudável, sem desperdício de Tempo e Ingredientes na Cozinha!"
     author = "Maria Conceição"
-    cor_verde = "#014039"
-    cor_dourado = "#bfb084"
-    preco_kit = 132.00
+    premio = "Vencedora do Prêmio Sebrae Mulher de Negócios"
     whatsapp = "5561996659880"
+    preco_kit = 132.00
 
-[taxonomies]
-    category = "categories"
-    tag = "tags"
-
-[outputFormats]
-  [outputFormats.JSON]
-    mediaType = "application/json"
-    baseName = "products"
-    isPlainText = true
-
-# --- CONFIGURAÇÃO PARA ROBÔS (AEO) ---
 [menu]
-  [[menu.main]]
-    name = "O Método"
-    url = "/metodo/"
-    weight = 1
-  [[menu.main]]
-    name = "Cardápio"
-    url = "/receitas/"
-    weight = 2
-  [[menu.main]]
-    name = "ChefBox (4+1)"
-    url = "/chefbox/"
-    weight = 3
+    # Menu Esquerdo (Autoridade)
+    [[menu.main]]
+        name = "O Método"
+        url = "/metodo/"
+        weight = 1

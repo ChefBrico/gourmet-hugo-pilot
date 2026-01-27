@@ -1,6 +1,6 @@
 baseURL = "https://gourmetpratico.com.br"
 languageCode = "pt-br"
-title = "Gourmet Prático | ChefBrico"
+title = "Gourmet Prático | Chef Maria Conceição"
 
 [params]
     slogan = "Gourmet Prático é uma culinária saudável, sem desperdício de Tempo e Ingredientes na sua Cozinha!"
@@ -19,19 +19,15 @@ title = "Gourmet Prático | ChefBrico"
     image = "/imagens/maria-conceicao-chefbrico-laranja.png"
     shipping = "Grátis para Brasília"
 
+[outputFormats.llms]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+
+[outputFormats.JSON]
+    mediaType = "application/json"
+    baseName = "knowledge-graph"
+    isPlainText = true
+
 [outputs]
-    home = ["HTML", "RSS", "JSON", "TXT"]
-
-[mediaTypes]
-    [mediaTypes."text/plain"]
-        suffixes = ["txt"]
-
-[outputFormats]
-    [outputFormats.TXT]
-        mediaType = "text/plain"
-        baseName = "llms"
-        isPlainText = true
-    [outputFormats.JSON]
-        mediaType = "application/json"
-        baseName = "knowledge-graph"
-        isPlainText = true
+    home = ["HTML", "RSS", "JSON", "llms"]

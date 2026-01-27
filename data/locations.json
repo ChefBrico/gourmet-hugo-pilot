@@ -1,0 +1,20 @@
+[
+  { "name": "Asa Sul", "slug": "asa-sul", "persona": "Casal Gourmet", "geo": { "latitude": "-15.8130", "longitude": "-47.9150" } },
+  { "name": "Asa Norte", "slug": "asa-norte", "persona": "Solteiro Prático", "geo": { "latitude": "-15.7634", "longitude": "-47.8706" } },
+  { "name": "Lago Sul", "slug": "lago-sul", "persona": "Família Premium", "geo": { "latitude": "-15.8366", "longitude": "-47.8879" } },
+  { "name": "Lago Norte", "slug": "lago-norte", "persona": "Vida Funcional", "geo": { "latitude": "-15.7368", "longitude": "-47.8637" } },
+  { "name": "Sudoeste", "slug": "sudoeste", "persona": "Vida Funcional", "geo": { "latitude": "-15.7956", "longitude": "-47.9247" } },
+  { "name": "Noroeste", "slug": "noroeste", "persona": "Bairro Novo/Sustentável", "geo": { "latitude": "-15.7533", "longitude": "-47.9144" } },
+  { "name": "Águas Claras", "slug": "aguas-claras", "persona": "Família Dinâmica", "geo": { "latitude": "-15.8363", "longitude": "-48.0193" } },
+  { "name": "Park Sul", "slug": "park-sul", "persona": "Viajante Airbnb", "geo": { "latitude": "-15.8260", "longitude": "-47.9540" } },
+  { "name": "Esplanada", "slug": "esplanada", "persona": "Executivo/Governo", "geo": { "latitude": "-15.7975", "longitude": "-47.8645" } },
+  { "name": "Plano Piloto", "slug": "plano-piloto", "persona": "Vida Urbana", "geo": { "latitude": "-15.7801", "longitude": "-47.9292" } },
+  { "name": "Taguatinga Sul", "slug": "taguatinga-sul", "persona": "Família Tradicional", "geo": { "latitude": "-15.8330", "longitude": "-48.0560" } },
+  { "name": "Taguatinga Norte", "slug": "taguatinga-norte", "persona": "Comércio Local", "geo": { "latitude": "-15.8150", "longitude": "-48.0650" } },
+  { "name": "Guará", "slug": "guara", "persona": "Trilheiro/Natureza", "geo": { "latitude": "-15.8267", "longitude": "-47.9800" } },
+  { "name": "Grande Colorado", "slug": "grande-colorado", "persona": "Refúgio/Paz", "geo": { "latitude": "-15.6900", "longitude": "-47.8500" } },
+  { "name": "SIA", "slug": "sia", "persona": "Trabalho/Indústria", "geo": { "latitude": "-15.8000", "longitude": "-47.9500" } },
+  { "name": "Riacho Fundo", "slug": "riacho-fundo", "persona": "Conforto Familiar", "geo": { "latitude": "-15.8800", "longitude": "-48.0200" } },
+  { "name": "Jardim Botânico", "slug": "jardim-botanico", "persona": "Saúde/Cerrado", "geo": { "latitude": "-15.8600", "longitude": "-47.8300" } },
+  { "name": "Vicente Pires", "slug": "vicente-pires", "persona": "Local Hero", "geo": { "latitude": "-15.8080", "longitude": "-48.0310" } }
+]

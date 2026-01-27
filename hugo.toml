@@ -1,11 +1,10 @@
 # ==========================================================================
-# GOURMET PRÁTICO | HUGO CONFIG v25.0 - CENTRAL DE INTELIGÊNCIA AGÊNTICA
+# GOURMET PRÁTICO | HUGO CONFIG v25.1 - FIX: NO-THEME BOUTIQUE MODE
 # ==========================================================================
 
 baseURL = "https://gourmetpratico.com.br"
 languageCode = "pt-br"
 title = "Gourmet Prático | Chef Maria Conceição"
-theme = ""
 
 # --------------------------------------------------------------------------
 # 1. PARÂMETROS DE AUTORIDADE E NEGÓCIO (EEAT & YMYL)
@@ -35,7 +34,6 @@ theme = ""
 # 3. CONFIGURAÇÃO DE SAÍDAS (O CÉREBRO PARA ROBÔS)
 # --------------------------------------------------------------------------
 [outputs]
-    # Gera o Site (HTML), o Feed Google (RSS), o Mapa IA (JSON) e o Manual GPT (llms)
     home = ["HTML", "RSS", "JSON", "llms"]
 
 [outputFormats.llms]
@@ -71,9 +69,8 @@ theme = ""
     weight = 3
 
 # --------------------------------------------------------------------------
-# 5. TAXONOMIAS (ORGANIZAÇÃO DE CONTEÚDO)
+# 5. TAXONOMIAS
 # --------------------------------------------------------------------------
 [taxonomies]
     category = "categories"
     tag = "tags"
-    solucao = "solucoes"

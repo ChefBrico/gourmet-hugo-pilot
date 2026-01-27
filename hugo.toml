@@ -9,6 +9,16 @@ title = "Gourmet Prático | ChefBrico"
     whatsapp = "5561996659880"
     preco_kit = 132.00
     cnpj = "36.014.833/0001-59"
+
+[params.chefbox]
+    id = "CHEFBOX-VIP-DF"
+    title = "ChefBox VIP: 5 Refeições Gourmet (4+1)"
+    price = 132.00
+    brand = "ChefBrico"
+    category = "Alimentos > Kits de Refeição"
+    image = "/imagens/maria-conceicao-chefbrico-laranja.png"
+    shipping = "Grátis para Brasília"
+
 [outputs]
     home = ["HTML", "RSS", "JSON", "TXT"]
 

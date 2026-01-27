@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="container" style="text-align: center; padding: 80px 20px;">
+    <h1 style="font-family: var(--fonte-titulo); font-size: 2.5rem;">Onde Entregamos no DF</h1>
+    <p style="color: #666; margin-bottom: 40px;">Selecione sua região para entrega expressa D+1 com frete grátis.</p>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+        {{ range .Site.Data.locations }}
+        <a href="/entrega/{{ .slug }}/" style="padding: 15px 30px; border: 1px solid #bfb084; border-radius: 50px; color: #014039; font-weight: bold; text-decoration: none;">
+            📍 {{ .name }}
+        </a>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -1,79 +1,43 @@
-<footer class="site-footer" style="background: white; padding: 40px 0 20px; border-top: 1px solid #bfb084; text-align: center; font-family: 'Lato', sans-serif;">
-    <div class="container footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+<footer class="site-footer" style="background: white; padding: 40px 0 20px; border-top: 1px solid #bfb084; text-align: center;">
+    <div class="container footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px;">
         
-        <!-- COLUNA 1: IDENTIDADE & EEAT (MARCA PREMIADA) -->
-        <div class="footer-col" style="display: flex; flex-direction: column; align-items: center;">
-            <img src="/imagens/logomarca-chefbrico-escrita.png" alt="ChefBrico" style="height: 50px; margin-bottom: 10px;">
-            <p style="font-size: 0.8rem; color: #666; line-height: 1.4; max-width: 200px; margin: 0 auto;">
-                {{ .Site.Params.slogan }}
-            </p>
-            <div style="background: #fff8e1; border: 1px solid #bfb084; padding: 8px; border-radius: 6px; margin-top: 12px; display: inline-block;">
-                <p style="color: #014039; font-weight: 800; font-size: 0.65rem; margin: 0; text-transform: uppercase;">
-                    🏆 {{ .Site.Params.premio }}
-                </p>
+        <div class="footer-col">
+            <img src="/imagens/logomarca-chefbrico-escrita.png" alt="ChefBrico" style="height: 50px;">
+            <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">{{ .Site.Params.slogan }}</p>
+            <div style="background: #fff8e1; padding: 8px; border-radius: 6px; border: 1px solid #bfb084; margin-top: 10px;">
+                <p style="color: #014039; font-weight: 800; font-size: 0.65rem; margin: 0;">🏆 {{ .Site.Params.premio }}</p>
             </div>
         </div>
 
-        <!-- COLUNA 2: EXPLORAR (NAVEGAÇÃO INSTITUCIONAL) -->
-        <div class="footer-col" style="display: flex; flex-direction: column; align-items: center;">
-            <h4 style="font-size: 0.85rem; text-transform: uppercase; color: #014039; margin-bottom: 15px; border-bottom: 2px solid #bfb084; padding-bottom: 3px; display: inline-block;">Explorar</h4>
-            <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 2;">
-                <li><a href="/" style="color: #555; text-decoration: none;">Início</a></li>
-                <li><a href="/metodo/" style="color: #555; text-decoration: none;">O Método</a></li>
-                <li><a href="/faq/" style="color: #555; text-decoration: none;">Dúvidas Frequentes</a></li>
+        <div class="footer-col">
+            <h4 style="font-size: 0.85rem; color: #014039;">Cardápio</h4>
+            <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2;">
+                <li><a href="/receitas/risotos/">Risotos</a></li>
+                <li><a href="/receitas/sopas-funcionais/">Sopas</a></li>
+                <li><a href="/receitas/refeicoes-integrais/">Integrais</a></li>
+                <li><a href="/receitas/emporio-da-chef/">Empório</a></li>
             </ul>
         </div>
 
-        <!-- COLUNA 3: CARDÁPIO (AS 4 CATEGORIAS CHEFBRICO) -->
-        <div class="footer-col" style="display: flex; flex-direction: column; align-items: center;">
-            <h4 style="font-size: 0.85rem; text-transform: uppercase; color: #014039; margin-bottom: 15px; border-bottom: 2px solid #bfb084; padding-bottom: 3px; display: inline-block;">Cardápio</h4>
-            <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 2;">
-                <li><a href="/receitas/risotos/" style="color: #555; text-decoration: none;">Risotos (18 min)</a></li>
-                <li><a href="/receitas/sopas-funcionais/" style="color: #555; text-decoration: none;">Sopas Funcionais</a></li>
-                <li><a href="/receitas/refeicoes-integrais/" style="color: #555; text-decoration: none;">Refeições Integrais</a></li>
-                <li><a href="/receitas/emporio-da-chef/" style="color: #555; text-decoration: none;">Empório da Chef</a></li>
+        <div class="footer-col">
+            <h4 style="font-size: 0.85rem; color: #014039;">Ajuda & Local</h4>
+            <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2;">
+                <li><a href="/onde-encontrar/">📍 Onde Encontrar</a></li>
+                <li><a href="/politicas/entrega/">Política de Frete</a></li>
+                <li><a href="/politicas/trocas/">Trocas e Devoluções</a></li>
+                <li><a href="/termos/">Termos de Uso</a></li>
             </ul>
         </div>
 
-        <!-- COLUNA 4: LEGAL (EXIGÊNCIAS GOOGLE MERCHANT CENTER) -->
-        <div class="footer-col" style="display: flex; flex-direction: column; align-items: center;">
-            <h4 style="font-size: 0.85rem; text-transform: uppercase; color: #014039; margin-bottom: 15px; border-bottom: 2px solid #bfb084; padding-bottom: 3px; display: inline-block;">Ajuda & Local</h4>
-            <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 2;">
-                <li><a href="/onde-encontrar/" style="color: #555; text-decoration: none;">📍 Onde Encontrar</a></li>
-                <li><a href="/politicas/entrega/" style="color: #555; text-decoration: none;">Política de Frete</a></li>
-                <li><a href="/politicas/trocas/" style="color: #555; text-decoration: none;">Trocas e Devoluções</a></li>
-                <li><a href="/termos/" style="color: #555; text-decoration: none;">Termos de Uso</a></li>
-            </ul>
-        </div>
-
-        <!-- COLUNA 5: CONTATO (A2P & CONFIANÇA) -->
-        <div class="footer-col" style="display: flex; flex-direction: column; align-items: center;">
-            <h4 style="font-size: 0.85rem; text-transform: uppercase; color: #014039; margin-bottom: 15px; border-bottom: 2px solid #bfb084; padding-bottom: 3px; display: inline-block;">Fale com a Chef</h4>
-            <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 2;">
-                <li><a href="https://wa.me/{{ .Site.Params.whatsapp }}" style="font-weight: bold; color: #F2811D; text-decoration: none;">✆ (61) 99665-9880</a></li>
-                <li style="color: #888; font-size: 0.75rem; margin-top: 10px;">Brasília - DF</li>
-                <li style="color: #888; font-size: 0.75rem;">Cozinha Central: Vicente Pires</li>
+        <div class="footer-col">
+            <h4 style="font-size: 0.85rem; color: #014039;">Fale com a Chef</h4>
+            <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2;">
+                <li><a href="https://wa.me/{{ .Site.Params.whatsapp }}" style="font-weight: bold; color: #F2811D;">✆ WhatsApp</a></li>
+                <li style="font-size: 0.7rem; color: #999; margin-top: 10px;">CNPJ: {{ .Site.Params.cnpj }}</li>
             </ul>
         </div>
     </div>
-
-    <!-- FAIXA FINAL (COPYRIGHT & DADOS FISCAIS) -->
-    <div class="footer-bottom" style="margin-top: 30px; padding: 20px 20px 100px; background: #f9f9f9; border-top: 1px solid #eee; text-align: center;">
-        <div class="container">
-            <p style="margin: 0; font-size: 0.75rem; color: #999;">
-                &copy; 2026 ChefBrico | Gourmet Prático. Todos os direitos reservados.
-            </p>
-            <p style="margin: 5px 0 0; font-size: 0.65rem; color: #bbb; text-transform: uppercase; letter-spacing: 1px;">
-                Razão Social: ChefBrico Alimentos | CNPJ: 36.014.833/0001-59
-            </p>
-            
-            <!-- SHADOW LINKS (A BÚSSOLA DOS AGENTES DE IA) -->
-            <div class="sr-only" style="display:none;">
-                <a href="/llms.txt">Agent Instructions</a>
-                <a href="/full-llms.txt">Deep RAG Context</a>
-                <a href="/sitemap.xml">Sitemap</a>
-                <a href="/feed_merchant.xml">UCP Product Feed</a>
-            </div>
-        </div>
+    <div class="footer-bottom" style="margin-top: 30px; padding: 15px; background: #f9f9f9; font-size: 0.7rem; color: #999;">
+        <p>&copy; 2026 ChefBrico | Gourmet Prático. Todos os direitos reservados.</p>
     </div>
 </footer>

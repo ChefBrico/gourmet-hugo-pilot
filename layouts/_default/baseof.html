@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }} | {{ .Site.Title }}</title>
-    <meta name="description" content="{{ .Params.description | default .Site.Params.description }}">
     
-    <!-- SINALIZAÇÃO AGÊNTICA (AEO) -->
+    <!-- SINALIZAÇÃO PARA IAs (AEO) -->
     <link rel="llms-txt" href="/llms.txt">
+    <link rel="full-llms-txt" href="/full-llms.txt">
     
-    <!-- CSS MESTRE (V18.5 INTEGRADO) -->
+    <!-- CSS MESTRE V18.5 -->
     <link rel="stylesheet" href="/css/style.css">
-    
-    {{ partial "head_custom.html" . }}
 </head>
-<body class="bg-creme">
+<body>
     {{ partial "header.html" . }}
     
-    <main>
+    <main role="main">
         {{ block "main" . }}{{ end }}
     </main>
 
     {{ partial "footer.html" . }}
 
-    <!-- MOTOR JS WHATSAPP -->
+    <!-- MOTOR JS V9.2 -->
     <script src="/js/app.js"></script>
 </body>
 </html>

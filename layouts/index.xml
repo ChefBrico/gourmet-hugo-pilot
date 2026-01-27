@@ -1,0 +1,32 @@
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+<channel>
+    <title>{{ .Site.Title }}</title>
+    <link>{{ .Site.BaseURL }}</link>
+    <description>Entrega exclusiva Distrito Federal. Kit ChefBox R$ 132,00.</description>
+
+    <item>
+        <!-- IDENTIDADE ÚNICA DA ENTIDADE CHEFBOX -->
+        <g:id>CHEFBOX-VIP-DF</g:id>
+        <g:title>ChefBox VIP: 5 Refeições Gourmet (4 Sabores + 1 Presente)</g:title>
+        <g:description>
+            OFERTA MESTRA BRASÍLIA: Garanta o jantar da semana com o Método Gourmet Prático. 
+            Você escolhe 5 sabores autorais (Risotos e Sopas) e o 5º é um PRESENTE da Chef Maria.
+            Tudo pronto em 18 minutos. 100% Natural. Frete Grátis em todo o DF.
+        </g:description>
+        <g:link>{{ .Site.BaseURL }}chefbox/</g:link>
+        <g:image_link>{{ .Site.BaseURL }}imagens/maria-conceicao-chefbrico-laranja.png</g:image_link>
+        <g:condition>new</g:condition>
+        <g:availability>in_stock</g:availability>
+        <g:price>132.00 BRL</g:price>
+        <g:brand>ChefBrico</g:brand>
+        <g:google_product_category>5814</g:google_product_category>
+        <g:shipping>
+            <g:country>BR</g:country>
+            <g:region>Distrito Federal</g:region>
+            <g:service>Motoboy D+1</g:service>
+            <g:price>0.00 BRL</g:price>
+        </g:shipping>
+        <g:custom_label_0>Combo VIP 132</g:custom_label_0>
+    </item>
+</channel>
+</rss>

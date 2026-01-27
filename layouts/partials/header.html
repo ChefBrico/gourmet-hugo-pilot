@@ -1,0 +1,38 @@
+<div class="top-bar-slogan">
+    {{ .Site.Params.description }}
+</div>
+
+<header class="site-header">
+    <div class="header-container">
+        
+        <!-- LADO ESQUERDO: AUTORIDADE -->
+        <nav class="nav-left desktop-only">
+            <ul class="nav-list">
+                <li><a href="/metodo/" class="nav-link">O Método</a></li>
+            </ul>
+        </nav>
+
+        <!-- CENTRO: O SELO DOURADO -->
+        <a href="/" class="logo-circle">
+            <img src="/imagens/logomarca-chefbrico-metodo-gourmet-pratico.png" alt="Logo" width="50" height="50">
+        </a>
+
+        <!-- LADO DIREITO: TRANSAÇÃO -->
+        <nav class="nav-right desktop-only">
+            <ul class="nav-list">
+                <li class="has-dropdown">
+                    <a href="/receitas/" class="nav-link">Cardápio ▾</a>
+                    <div class="mega-menu">
+                        <a href="/receitas/risotos/">Risotos</a>
+                        <a href="/receitas/sopas/">Sopas</a>
+                        <a href="/receitas/refeicoes/">Refeições</a>
+                    </div>
+                </li>
+                <li><a href="/chefbox/" class="nav-link btn-chefbox">🎁 ChefBox (4+1)</a></li>
+            </ul>
+        </nav>
+
+        <!-- MOBILE TRIGGER -->
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </div>
+</header>

@@ -1,24 +1,25 @@
-baseURL = "/"
-languageCode = "pt-br"
-title = "Gourmet Prático | Chef Maria Conceição"
-
-[params]
-    slogan = "Gourmet Prático: uma culinária saudável, sem desperdício de Tempo e Ingredientes na sua Cozinha!"
-    author = "Maria Conceição"
-    premio = "Vencedora do Prêmio Sebrae Mulher de Negócios"
-    whatsapp = "5561996659880"
-    preco_kit = 132.00
-    cnpj = "36.014.833/0001-59"
+baseURL = 'https://www.gourmetpratico.com.br/'
+languageCode = 'pt-br'
+title = 'Gourmet Prático | Chef Maria Conceição'
+theme = []
 
 [outputs]
-    home = ["HTML", "RSS", "JSON", "llms"]
+  home = ["HTML", "RSS", "JSON"] # JSON cria a API para o ChefBox
+  section = ["HTML"]
+  page = ["HTML"]
 
-[outputFormats.llms]
-    mediaType = "text/plain"
-    baseName = "llms"
-    isPlainText = true
+[params]
+  slogan = "Gourmet Prático: uma culinária saudável, sem desperdício de Tempo e Ingredientes na sua Cozinha!"
+  author = "Maria Conceição"
+  premio = "Vencedora do Prêmio Sebrae Mulher de Negócios"
+  whatsapp_number = "5561996659880" # Padronizado para o Hugo ler
+  preco_kit = 132.00
+  cnpj = "36.014.833/0001-59"
+  description = "Psicóloga de formação e Chef premiada pelo Sebrae. Criadora do 'Método Gourmet Prático' e da 'ChefBox'."
 
-[outputFormats.JSON]
-    mediaType = "application/json"
-    baseName = "knowledge-graph"
-    isPlainText = true
+[permalinks]
+  receitas = "/sabores/:slug/"
+  metodo = "/metodo/:slug/"
+
+[minify]
+  minifyOutput = true

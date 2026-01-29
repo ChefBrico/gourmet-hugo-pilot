@@ -69,7 +69,7 @@
     <!-- C. RODAPÉ -->
     {{ partial "footer.html" . }}
 
-    <!-- D. BARRA DE GAMIFICAÇÃO (Lógica Hugo: Só aparece em Receitas ou ChefBox) -->
+   <!-- D. BARRA DE GAMIFICAÇÃO (Corrigido para Hugo Puro) -->
     {{ if or (eq .Section "receitas") (eq .Section "chefbox") (in .Permalink "sabores") }}
     <aside id="chefbox-bar" class="chefbox-sticky-bar">
         <!-- Texto de Status -->
@@ -86,12 +86,12 @@
             <div id="slot-5" class="slot-circle gift" title="Seu Presente!">🎁</div>
         </div>
 
-        <!-- Botão Finalizar (Controlado pelo app.js) -->
+        <!-- Botão Finalizar -->
         <button id="btn-finish-game" class="btn-finish-float" onclick="openCheckoutModal()">
             Finalizar Pedido R$ {{ .Site.Params.preco_kit }} ➜
         </button>
     </aside>
-    {% endif %} <!-- Fim da condicional -->
+    {{ end }} <!-- 👈 AQUI MUDOU: Usamos {{ end }} e não {% endif %} -->
 
     <!-- E. MODAL DE VENDAS (Sempre carregado, mas oculto) -->
     {{ partial "modal.html" . }}

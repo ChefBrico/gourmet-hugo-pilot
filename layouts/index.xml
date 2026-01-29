@@ -1,32 +1,85 @@
-<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+<rss xmlns:g="http://base.google.com/ns/1.0" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
 <channel>
-    <title>ChefBrico | Club Gourmet Prático</title>
+    <title>{{ .Site.Title }} | Loja Oficial</title>
     <link>{{ .Site.BaseURL }}</link>
-    <description>Feed de Produtos VIP - Entrega Brasília DF</description>
+    <description>{{ .Site.Params.description }} - Entrega Rápida em Brasília (DF).</description>
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
 
-    <!-- ENTIDADE ÚNICA: CHEFBOX VIP -->
+    <!-- ============================================================== -->
+    <!-- 1. O PRODUTO ESTRELA: CHEFBOX (KIT 4+1)                        -->
+    <!-- Estratégia: Capturar quem busca "Marmita Fit", "Kit Refeição"  -->
+    <!-- ============================================================== -->
     <item>
-        <g:id>CHEFBOX-VIP-132</g:id>
-        <g:title>ChefBox VIP: 5 Refeições Gourmet (4 Sabores + 1 Presente)</g:title>
+        <g:id>CHEFBOX-BUNDLE-{{ .Site.Params.preco_kit }}</g:id>
+        <g:title>ChefBox VIP: 5 Refeições Gourmet (Pague 4, Leve 5) - ChefBrico</g:title>
         <g:description>
-            OFERTA EXCLUSIVA BRASÍLIA: Monte seu kit com 5 pratos autorais da Chef Maria Conceição. 
-            Pague 4 e o 5º é PRESENTE. Pronto em 18 minutos. 100% Natural. Frete Grátis DF.
+            OFERTA EXCLUSIVA BRASÍLIA: Monte seu kit personalizado com 5 pratos autorais da Chef Maria Conceição. 
+            Mecânica 4+1: Você escolhe 5, paga 4 e o 5º é PRESENTE. 
+            Pronto em 18 minutos. Tecnologia de Desidratação (Nutrição Preservada). 
+            Frete Grátis para todo o Distrito Federal.
         </g:description>
-        <g:link>{{ .Site.BaseURL }}chefbox/</g:link>
-        <g:image_link>{{ .Site.BaseURL }}imagens/maria-conceicao-chefbrico-laranja.png</g:image_link>
+        <g:link>{{ .Site.BaseURL }}chefbox/?utm_source=google_shopping&amp;utm_medium=cpc&amp;utm_campaign=bundle_vip</g:link>
+        <g:image_link>{{ "imagens/maria-conceicao-chefbrico-laranja.png" | absURL }}</g:image_link>
         <g:brand>ChefBrico</g:brand>
         <g:condition>new</g:condition>
         <g:availability>in_stock</g:availability>
-        <g:price>132.00 BRL</g:price>
-        <g:google_product_category>5814</g:google_product_category>
-        <g:product_type>Alimentos > Kits de Refeição</g:product_type>
+        
+        <!-- Preço Dinâmico (Puxa do hugo.toml) -->
+        <g:price>{{ printf "%.2f" .Site.Params.preco_kit }} BRL</g:price>
+        
+        <!-- Categorização Google -->
+        <g:google_product_category>Food, Beverages &amp; Tobacco &gt; Food Items &gt; Prepared Meals</g:google_product_category>
+        <g:product_type>Alimentos > Kits de Refeição > Gourmet</g:product_type>
+        
+        <!-- Dados de Logística Ultra Local -->
         <g:shipping>
             <g:country>BR</g:country>
             <g:region>Distrito Federal</g:region>
-            <g:service>Motoboy D+1</g:service>
+            <g:service>Entrega Própria (Motoboy)</g:service>
             <g:price>0.00 BRL</g:price>
         </g:shipping>
-        <g:custom_label_0>Combo VIP 132</g:custom_label_0>
+        
+        <!-- Atributos Especiais -->
+        <g:is_bundle>true</g:is_bundle> <!-- Avisa o Google que é um KIT -->
+        <g:identifier_exists>no</g:identifier_exists> <!-- Produto Artesanal (Sem EAN/GTIN) -->
+        <g:custom_label_0>Best Seller</g:custom_label_0>
+        <g:custom_label_1>Frete Gratis DF</g:custom_label_1>
     </item>
+
+    <!-- ============================================================== -->
+    <!-- 2. A CAUDA LONGA: 24 SABORES INDIVIDUAIS                       -->
+    <!-- Estratégia: Capturar quem busca "Risoto de Funghi Brasília"    -->
+    <!-- ============================================================== -->
+    {{ range where .Site.RegularPages "Section" "receitas" }}
+    <item>
+        <g:id>{{ .Params.sku }}</g:id>
+        <g:title>{{ .Title }} - Refeição Gourmet (ChefBrico)</g:title>
+        <g:description>
+            {{ .Params.description }} 
+            Ingredientes selecionados. Rico em {{ .Params.nutrition.protein }}g de proteína. 
+            Parte do sistema ChefBox (Compre 4 e ganhe +1).
+        </g:description>
+        <g:link>{{ .Permalink }}?utm_source=google_shopping&amp;utm_medium=organic&amp;utm_campaign=single_item</g:link>
+        <g:image_link>{{ .Params.image | absURL }}</g:image_link>
+        <g:brand>ChefBrico</g:brand>
+        <g:condition>new</g:condition>
+        <g:availability>in_stock</g:availability>
+        <g:price>{{ printf "%.2f" .Params.price }} BRL</g:price>
+        
+        <g:google_product_category>Food, Beverages &amp; Tobacco &gt; Food Items &gt; Prepared Meals</g:google_product_category>
+        <g:product_type>Alimentos > Refeições > {{ .Params.category }}</g:product_type>
+        
+        <g:shipping>
+            <g:country>BR</g:country>
+            <g:region>Distrito Federal</g:region>
+            <g:service>Motoboy</g:service>
+            <g:price>0.00 BRL</g:price> <!-- Frete Grátis se atingir o mínimo (Regra de Negócio) -->
+        </g:shipping>
+        
+        <g:identifier_exists>no</g:identifier_exists>
+        <g:custom_label_0>Sabor Individual</g:custom_label_0>
+    </item>
+    {{ end }}
+
 </channel>
 </rss>

@@ -8,14 +8,9 @@
 </head>
 <body>
     {{ partial "header.html" . }}
-    
-    <main>
-        {{ block "main" . }}{{ end }}
-    </main>
-
+    <main>{{ block "main" . }}{{ end }}</main>
     {{ partial "footer.html" . }}
     {{ partial "modal.html" . }}
-
     <script src="/js/app.js"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 {{ define "main" }}
 
-<!-- 1. CÉREBRO DIGITAL (SCHEMA.ORG: RECEITA + OFERTA 4+1) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -30,7 +29,6 @@
 }
 </script>
 
-<!-- 2. ESTILOS ESPECÍFICOS DESTA PÁGINA -->
 <style>
   .receita-header { text-align: center; max-width: 800px; margin: 40px auto; padding: 0 20px; }
   .receita-title { color: #014039; font-size: 2.2rem; font-family: serif; margin-bottom: 10px; line-height: 1.2; }
@@ -60,7 +58,6 @@
 </style>
 
 <article>
-    <!-- CABEÇALHO DA RECEITA -->
     <header class="receita-header">
         <h1 class="receita-title">{{ .Title }}</h1>
         <p class="receita-subtitle">{{ .Params.description }}</p>
@@ -72,16 +69,13 @@
         </div>
     </header>
 
-    <!-- IMAGEM HERO -->
     <div class="hero-image-container">
         <img src="{{ .Params.image | absURL }}" alt="Foto do prato {{ .Title }}">
     </div>
 
-    <!-- CONTEÚDO (TEXTO RICO) -->
     <div class="conteudo-leitura">
         {{ .Content }}
 
-        <!-- BOTÃO DE AÇÃO (INTEGRADO AO APP.JS) -->
         <div class="cta-box">
             <img src="{{ .Params.image | absURL }}" class="cta-img" alt="Miniatura">
             <div style="flex-grow: 1;">
@@ -94,7 +88,6 @@
             </button>
         </div>
 
-        <!-- TABELA NUTRICIONAL -->
         {{ with .Params.nutrition }}
         <div style="text-align: center; margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px;">
             <h3 style="color: #014039; margin-bottom: 10px;">Informação Nutricional</h3>
@@ -105,8 +98,16 @@
                 <div class="nutri-card"><div class="nutri-head">Gordura</div><div class="nutri-body">{{ .fats }}<span class="nutri-unit">g</span></div></div>
             </div>
         </div>
-        {{ end }}
-    </div>
+        {{ end }} </div>
 </article>
 
-{{ end }}
+{{ end }} ```
+
+### 📋 Checklist de Segurança (Antes de salvar)
+
+1.  A **primeira linha** do arquivo é `{{ define "main" }}`?
+2.  Existe um bloco `{{ with .Params.nutrition }}` no meio?
+3.  Existe um `{{ end }}` para fechar a nutrição?
+4.  A **última linha** do arquivo é `{{ end }}`?
+
+Se substituires tudo pelo código acima, o Netlify vai conseguir construir o site. Faz o commit e avisa-me! 🚀

@@ -1,25 +1,83 @@
 {{ define "main" }}
-<section class="hero-light">
-    <div class="container">
-        <span style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; color: var(--cor-verde-escuro); font-weight: bold;">Experiência ChefBrico</span>
-        <h1>Comida de Verdade,<br>Sem Confusão na Cozinha.</h1>
-        <p style="margin-top: 15px; font-size: 1.2rem;">O método premiado que devolve o seu tempo.</p>
-        <a href="/chefbox/" style="background: var(--cor-laranja); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px;">MONTAR MINHA CHEFBOX ➜</a>
+
+<!-- 1. HERO SECTION (A Promessa) -->
+<section class="hero-section" style="background: linear-gradient(rgba(1,64,57,0.9), rgba(1,64,57,0.8)), url('/imagens/fundo-cozinha-gourmet.jpg'); background-size: cover; color: white; padding: 80px 20px; text-align: center;">
+    <div class="container" style="max-width: 800px; margin: 0 auto;">
+        <h1 style="font-family: serif; font-size: 2.5rem; margin-bottom: 20px; color: #bfb084;">
+            {{ .Site.Params.slogan }}
+        </h1>
+        <p style="font-size: 1.2rem; margin-bottom: 40px; line-height: 1.6;">
+            Descubra o segredo da <strong>Chef Maria Conceição</strong> para ter refeições de alta gastronomia em 5 minutos, sem desperdício e com nutrição afetiva.
+        </p>
+        <a href="/chefbox/" style="background: #F2811D; color: white; padding: 15px 40px; border-radius: 50px; font-weight: bold; text-decoration: none; font-size: 1.1rem; display: inline-block; box-shadow: 0 4px 15px rgba(242, 129, 29, 0.4);">
+            Quero Montar meu Box (4+1) 🎁
+        </a>
     </div>
 </section>
 
-<div class="container">
-    <div class="mantra-card">
-        <p class="mantra-text">"{{ .Site.Params.slogan }}"</p>
-        <img src="/imagens/assinatura-maria-dourada.png" alt="Assinatura" style="height: 45px; margin: 0 auto; opacity: 0.7;">
-        <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--cor-dourado); font-weight: bold;">Chef Maria Conceição</p>
+<!-- 2. O MÉTODO (Autoridade EEAT) -->
+<section style="padding: 60px 20px; background: #fff;">
+    <div class="container" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        <h2 style="color: #014039; font-size: 2rem; margin-bottom: 40px;">Por que Gourmet Prático?</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <!-- Pilar 1 -->
+            <div class="pilar-card" style="padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">⏳</div>
+                <h3 style="color: #014039;">Tempo é Vida</h3>
+                <p style="color: #666;">Refeições prontas em minutos. Saia da cozinha e vá viver.</p>
+            </div>
+            <!-- Pilar 2 -->
+            <div class="pilar-card" style="padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🌿</div>
+                <h3 style="color: #014039;">Zero Desperdício</h3>
+                <p style="color: #666;">Tecnologia de desidratação que preserva nutrientes e sabor por meses.</p>
+            </div>
+            <!-- Pilar 3 -->
+            <div class="pilar-card" style="padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">❤️</div>
+                <h3 style="color: #014039;">O 5º Sabor</h3>
+                <p style="color: #666;">Umami natural. Comida de verdade que abraça o estômago.</p>
+            </div>
+        </div>
     </div>
+</section>
 
-    <h2 style="text-align: center; margin-top: 60px;">A Trilha do Método</h2>
-    <div class="carousel-container">
-        {{ range (where .Site.RegularPages "Section" "metodo") }}
-        <div class="card"><a href="{{ .Permalink }}"><div class="boutique-frame"><img src="{{ .Params.image }}" alt="{{ .Title }}"></div><h3 style="font-size: 1rem; color: var(--cor-verde-escuro);">{{ .Title }}</h3></a></div>
-        {{ end }}
+<!-- 3. VITRINE DE SABORES (Loop Automático do Hugo) -->
+<section id="sabores" style="padding: 60px 20px; background: #f9f9f9;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="color: #014039; font-size: 2rem;">Nossos Sabores</h2>
+            <p>Escolha 4 e ganhe 1 de presente na ChefBox.</p>
+        </div>
+
+        <!-- GRID DE PRODUTOS -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
+            
+            {{ range first 6 (where .Site.RegularPages "Section" "receitas") }}
+            <div class="product-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;">
+                <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">
+                    <div style="height: 200px; overflow: hidden;">
+                        <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 20px;">
+                        <h3 style="color: #014039; font-size: 1.1rem; margin-bottom: 10px;">{{ .Title }}</h3>
+                        <p style="font-size: 0.9rem; color: #666; height: 40px; overflow: hidden;">{{ .Params.description | truncate 60 }}</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                            <span style="font-weight: bold; color: #27ae60; font-size: 1.1rem;">R$ {{ .Params.price }}</span>
+                            <span style="background: #014039; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Ver Detalhes</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{ end }}
+
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="/sabores/" style="color: #014039; font-weight: bold; text-decoration: underline;">Ver Cardápio Completo ➝</a>
+        </div>
     </div>
-</div>
+</section>
+
 {{ end }}

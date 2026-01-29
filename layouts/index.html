@@ -1,56 +1,50 @@
 {{ define "main" }}
-<!-- 1. HERO SECTION (VERDE CLARO) -->
-<section class="hero-light">
+<!-- 1. HERO EDITORIAL -->
+<section style="background: var(--cor-verde); color: white; padding: 80px 20px; text-align: center;">
     <div class="container">
-        <span style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; color: var(--cor-verde-escuro); font-weight: bold;">Experiência ChefBrico</span>
-        <h1>O Sabor da Alta Gastronomia,<br>no Conforto do seu Lar.</h1>
-        <p style="margin-top: 15px; font-size: 1.2rem;">Refeições 100% naturais prontas em 18 minutos.</p>
-        <a href="/chefbox/" style="background: var(--cor-laranja); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px; box-shadow: 0 4px 15px rgba(242, 129, 29, 0.3);">MONTAR MINHA CHEFBOX ➜</a>
+        <span style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; color: var(--cor-dourado);">Felicidade em 18 Minutos</span>
+        <h1 style="color: white; font-size: 3rem; margin-top: 20px;">Comida de Verdade,<br>Sem Confusão na Cozinha.</h1>
+        <p style="opacity: 0.9; margin-top: 15px; font-size: 1.2rem;">O método premiado que devolve o seu tempo e cuida da sua saúde.</p>
+        <a href="/chefbox/" style="background: var(--cor-laranja); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px;">MONTAR MINHA CHEFBOX ➜</a>
     </div>
 </section>
 
-<!-- 2. MANTRA E ASSINATURA (EEAT) -->
+<!-- 2. MANTRA E AUTORIDADE (EEAT) -->
 <div class="container">
     <div style="background: white; border: 1px solid var(--cor-dourado); padding: 40px; text-align: center; margin: -40px auto 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; z-index: 20;">
-        <p style="font-family: var(--fonte-titulo); font-size: 1.4rem; font-style: italic; color: var(--cor-verde-escuro); margin: 0;">
+        <p style="font-family: var(--fonte-titulo); font-size: 1.4rem; font-style: italic; color: var(--cor-verde);">
             "{{ .Site.Params.slogan }}"
         </p>
         <div style="margin-top: 20px;">
             <img src="/imagens/assinatura-maria-dourada.png" alt="Assinatura" style="height: 45px; margin: 0 auto; opacity: 0.7;">
-            <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--cor-dourado); font-weight: bold; margin-top: 10px;">Chef Maria Conceição</p>
+            <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--cor-dourado); font-weight: bold; margin-top: 10px;">Chef Maria Conceição - Prêmio Sebrae</p>
         </div>
     </div>
 
-    <!-- 3. A TRILHA DO MÉTODO (CARROSSEL RESTAURADO) -->
-    <h2 style="text-align: center; margin-top: 60px; font-family: var(--fonte-titulo);">A Trilha do Método</h2>
-    <div class="carousel-container">
+    <!-- 3. TRILHA EMPREENDEDORA (CARDS EEAT) -->
+    <h2 style="text-align: center; margin-top: 60px; font-family: var(--fonte-titulo);">Nossa Jornada de Afeto</h2>
+    <div style="display: flex; overflow-x: auto; gap: 25px; padding: 20px 0 40px; scrollbar-width: none;">
         {{ range (where .Site.RegularPages "Section" "metodo") }}
-        <div class="card">
-            <a href="{{ .Permalink }}">
+        <div style="flex: 0 0 280px; text-align: center;">
+            <a href="{{ .Permalink }}" style="text-decoration: none;">
                 <div class="boutique-frame">
                     <img src="{{ .Params.image }}" alt="{{ .Title }}">
                 </div>
-                <h3 style="font-size: 1rem; color: var(--cor-verde-escuro);">{{ .Title }}</h3>
+                <h3 style="font-size: 1.1rem; color: var(--cor-verde);">{{ .Title }}</h3>
+                <p style="font-size: 0.85rem; color: #666;">{{ .Description | truncate 80 }}</p>
             </a>
         </div>
         {{ end }}
     </div>
 
-    <!-- 4. VITRINE DE 6 COLUNAS (RESTAURADA) -->
-    <h2 style="text-align: center; margin-top: 80px; font-family: var(--fonte-titulo);">Nossa Coleção de Sabores</h2>
-    <div class="vitrine-magica">
-        {{ range (where .Site.RegularPages "Section" "receitas") }}
-        <div class="card-gastronomico">
-            <div class="card-img-wrapper">
-                <img src="{{ .Params.image }}" alt="{{ .Title }}">
-                <button class="btn-plus-boutique" onclick="addToGame('{{ .Title }}', {{ .Params.price }}, '{{ .Params.image }}', '{{ .Params.sku }}')">+</button>
-            </div>
-            <div style="padding: 10px; text-align: center;">
-                <h3 style="font-size: 0.8rem; margin: 5px 0;">{{ .Title }}</h3>
-                <span style="color: var(--cor-laranja); font-weight: bold; font-size: 0.9rem;">R$ {{ .Params.price }}</span>
-            </div>
+    <!-- 4. CONVITE PARA O CARDÁPIO (SEM REPETIR OS 24 ITENS) -->
+    <section style="text-align: center; margin: 60px auto; padding: 60px; background: white; border: 1px solid var(--cor-dourado); border-radius: 15px; max-width: 800px;">
+        <h2 style="font-size: 2.2rem;">Pronta para o Próximo Nível?</h2>
+        <p style="color: #666; margin-bottom: 30px;">Conheça nossa coleção completa de Risotos e Sopas Funcionais.</p>
+        <div style="display: flex; gap: 20px; justify-content: center;">
+            <a href="/receitas/" style="padding: 15px 30px; border: 1px solid #ddd; border-radius: 50px; font-weight: bold; text-decoration: none; color: var(--cor-verde);">VER CARDÁPIO</a>
+            <a href="/chefbox/" style="padding: 15px 30px; background: var(--cor-laranja); color: white; border-radius: 50px; font-weight: bold; text-decoration: none;">MONTAR CHEFBOX</a>
         </div>
-        {{ end }}
-    </div>
+    </section>
 </div>
 {{ end }}

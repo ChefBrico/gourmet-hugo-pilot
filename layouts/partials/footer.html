@@ -1,60 +1,59 @@
-<footer class="site-footer">
-    <div class="container footer-grid">
+<footer class="site-footer" style="background: #014039; color: white; padding: 40px 20px; margin-top: 60px;">
+    <div class="footer-container" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
         
-        <!-- COLUNA 1: LOGO E SEBRAE -->
-        <div class="footer-col">
-            <img src="/imagens/logomarca-chefbrico-escrita.png" alt="ChefBrico" style="height: 50px;">
-            <p style="margin-top:10px;">Simples como precisa ser, delicioso como você merece.</p>
-            <div style="background: #fff8e1; border: 1px solid #bfb084; padding: 8px; border-radius: 6px; margin-top: 10px;">
-                <a href="/comida-de-verdade/jornada-maria-conceicao-chefbrico-gourmet-pratico/" style="color: #014039; font-weight: bold; font-size: 0.7rem;">🏆 Vencedora Prêmio Sebrae</a>
-            </div>
+        <!-- COLUNA 1: MARCA -->
+        <div>
+            <h3 style="color: #bfb084; text-transform: uppercase; font-size: 0.9rem;">ChefBrico | Gourmet Prático</h3>
+            <p style="font-size: 0.85rem; line-height: 1.6; opacity: 0.8;">
+                {{ .Site.Params.slogan }}
+            </p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">CNPJ: {{ .Site.Params.cnpj }}</p>
         </div>
 
-        <!-- COLUNA 2: EXPLORAR -->
-        <div class="footer-col">
-            <h4>Explorar</h4>
-            <ul>
-                <li><a href="/metodo/">O Método</a></li>
-                <li><a href="/faq/">Dúvidas Frequentes</a></li>
-                <li><a href="/onde-encontrar/">Onde Entregamos</a></li>
-                <li><a href="/chefbox/">Monte sua ChefBox</a></li>
+        <!-- COLUNA 2: LINKS -->
+        <div>
+            <h4 style="color: #bfb084; font-size: 0.8rem; text-transform: uppercase;">Navegação</h4>
+            <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 2;">
+                <li><a href="/metodo/" style="color: white; text-decoration: none;">O Método</a></li>
+                <li><a href="/sabores/" style="color: white; text-decoration: none;">Cardápio Completo</a></li>
+                <li><a href="/chefbox/" style="color: white; text-decoration: none;">Monte sua Box</a></li>
+                <li><a href="/feed_merchant.xml" style="color: #aaa; font-size: 0.7rem;">Feed XML (Google)</a></li>
             </ul>
         </div>
 
-        <!-- COLUNA 3: CARDÁPIO COMPLETO -->
-        <div class="footer-col">
-            <h4>Cardápio</h4>
-            <ul>
-                <li><a href="/receitas/risotos/">Risotos</a></li>
-                <li><a href="/receitas/sopas-funcionais/">Sopas</a></li>
-                <li><a href="/receitas/refeicoes-integrais/">Refeições Integrais</a></li>
-                <li><a href="/receitas/emporio-da-chef/">Empório da Chef</a></li>
-            </ul>
+        <!-- COLUNA 3: CONTATO -->
+        <div>
+            <h4 style="color: #bfb084; font-size: 0.8rem; text-transform: uppercase;">Atendimento</h4>
+            <p style="font-size: 0.85rem;">WhatsApp: {{ .Site.Params.whatsapp_number }}</p>
+            <p style="font-size: 0.85rem;">Vicente Pires, Brasília - DF</p>
+            <p style="font-size: 0.7rem; color: #aaa; margin-top: 10px;">&copy; {{ now.Format "2006" }} ChefBrico.</p>
         </div>
-
-        <!-- COLUNA 4: AJUDA (GMC) -->
-        <div class="footer-col">
-            <h4>Ajuda</h4>
-            <ul>
-                <li><a href="/politicas/trocas/">Trocas e Devoluções</a></li>
-                <li><a href="/politicas/entrega/">Política de Entrega</a></li>
-                <li><a href="/termos/">Termos de Uso LGPD</a></li>
-            </ul>
-        </div>
-
-        <!-- COLUNA 5: FALE COM MARIA -->
-        <div class="footer-col">
-            <h4>Fale com a Chef</h4>
-            <ul>
-                <li><a href="https://wa.me/{{ .Site.Params.whatsapp }}" style="font-weight: bold; color: var(--cor-laranja);">✆ WhatsApp</a></li>
-                <li><a href="https://instagram.com/chefbrico">Instagram @chefbrico</a></li>
-                <li><a href="https://www.chefbrico.com">Loja Nacional (Tray)</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2026 ChefBrico | Gourmet Prático. Todos os direitos reservados.</p>
-        <p>Razão Social: ChefBrico Alimentos | CNPJ: 36.014.833/0001-59</p>
     </div>
 </footer>
+
+<!-- SCHEMA.ORG ORGANIZATION (ROBÔ) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "@id": "https://gourmetpratico.com.br/#organization",
+  "name": "ChefBrico",
+  "legalName": "ChefBrico Alimentos Artesanais",
+  "taxID": "{{ .Site.Params.cnpj }}",
+  "url": "{{ .Site.BaseURL }}",
+  "telephone": "+{{ .Site.Params.whatsapp_number }}",
+  "priceRange": "$$",
+  "award": "{{ .Site.Params.premio }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Vicente Pires, Brasília",
+    "addressRegion": "DF",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-15.8080",
+    "longitude": "-48.0310"
+  }
+}
+</script>

@@ -1,38 +1,15 @@
-# ==========================================================================
-# GOURMET PRÁTICO | HUGO CONFIG v25.1 - FIX: NO-THEME BOUTIQUE MODE
-# ==========================================================================
-
-baseURL = "https://gourmetpratico.com.br"
+baseURL = "/"
 languageCode = "pt-br"
 title = "Gourmet Prático | Chef Maria Conceição"
 
-# --------------------------------------------------------------------------
-# 1. PARÂMETROS DE AUTORIDADE E NEGÓCIO (EEAT & YMYL)
-# --------------------------------------------------------------------------
 [params]
-    slogan = "Gourmet Prático é uma culinária saudável, sem desperdício de Tempo e Ingredientes na sua Cozinha!"
+    slogan = "Gourmet Prático: uma culinária saudável, sem desperdício de Tempo e Ingredientes na sua Cozinha!"
     author = "Maria Conceição"
     premio = "Vencedora do Prêmio Sebrae Mulher de Negócios"
     whatsapp = "5561996659880"
     preco_kit = 132.00
     cnpj = "36.014.833/0001-59"
-    description = "Refeições gourmet 100% naturais prontas em 18 minutos. O método da Chef Maria Conceição."
 
-# --------------------------------------------------------------------------
-# 2. ENTIDADE ÚNICA CHEFBOX (GOOGLE MERCHANT CENTER READY)
-# --------------------------------------------------------------------------
-[params.chefbox]
-    id = "CHEFBOX-VIP-DF"
-    title = "ChefBox VIP: 5 Refeições Gourmet (4 Sabores + 1 Presente)"
-    price = 132.00
-    brand = "ChefBrico"
-    category = "Alimentos > Kits de Refeição"
-    image = "/imagens/maria-conceicao-chefbrico-laranja.png"
-    shipping = "Frete Grátis para todo o Distrito Federal"
-
-# --------------------------------------------------------------------------
-# 3. CONFIGURAÇÃO DE SAÍDAS (O CÉREBRO PARA ROBÔS)
-# --------------------------------------------------------------------------
 [outputs]
     home = ["HTML", "RSS", "JSON", "llms"]
 
@@ -45,32 +22,3 @@ title = "Gourmet Prático | Chef Maria Conceição"
     mediaType = "application/json"
     baseName = "knowledge-graph"
     isPlainText = true
-
-[outputFormats.RSS]
-    mediatype = "application/rss+xml"
-    baseName = "index"
-
-# --------------------------------------------------------------------------
-# 4. NAVEGAÇÃO E MENU (SIMETRIA CENTRALIZADA)
-# --------------------------------------------------------------------------
-[[menu.main]]
-    name = "O Método"
-    url = "/metodo/"
-    weight = 1
-
-[[menu.main]]
-    name = "Cardápio"
-    url = "/receitas/"
-    weight = 2
-
-[[menu.main]]
-    name = "ChefBox (4+1)"
-    url = "/chefbox/"
-    weight = 3
-
-# --------------------------------------------------------------------------
-# 5. TAXONOMIAS
-# --------------------------------------------------------------------------
-[taxonomies]
-    category = "categories"
-    tag = "tags"

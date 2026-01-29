@@ -1,7 +1,9 @@
 ---
 title: "O Método Gourmet Prático"
-description: "Conheça os 3 pilares da Chef Maria Conceição para uma culinária saudável e sem desperdício."
-layout: "metodo"
+date: 2026-01-29
+description: "Conheça os 3 pilares da Chef Maria Conceição para uma culinária saudável."
+image: "/imagens/metodo-capa.jpg"
+layout: "single" 
 ---
 
 # Gourmet Prático: A Ciência do Afeto na Cozinha
@@ -21,6 +23,3 @@ Nós damos os 80% (a base gourmet), você dá os 20% (o seu toque final). Adicio
 
 ## O Nosso Segredo: A Desidratação Artesanal
 Diferente dos processos industriais, nossa desidratação é feita em baixa temperatura, preservando as células, os nutrientes e concentrando o sabor natural (Umami) sem usar conservantes químicos.
-
-## A Verdade sobre o 5º Sabor
-Na ChefBox, acreditamos na abundância. Por isso, ao montar seu kit de 4 sabores, o **5º sabor é sempre um PRESENTE**. É a nossa forma de incentivar você a experimentar o novo e garantir o jantar de toda a semana.

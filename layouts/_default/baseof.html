@@ -1,16 +1,104 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{{ .Site.LanguageCode | default "pt-br" }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- 1. SEO & IDENTIDADE (Robô Lê) -->
+    <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ .Params.description | default .Site.Params.description }}">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    <meta name="theme-color" content="#014039"> <!-- Cor da Marca no Mobile -->
+    <link rel="canonical" href="{{ .Permalink }}">
+    
+    <!-- 2. ESTILOS (Humano Vê) -->
+    <!-- O Hugo busca isso em /static/css/style.css -->
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    
+    <!-- CSS Crítico da Barra ChefBox (Para não piscar) -->
+    <style>
+        .chefbox-sticky-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.98); border-top: 4px solid #F2811D;
+            padding: 15px 0; z-index: 999;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column; align-items: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease-in-out;
+        }
+        .slot-circle {
+            width: 35px; height: 35px; border-radius: 50%;
+            background: #eee; color: #999;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 0.9rem;
+            border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .slot-circle.gift { font-size: 1.2rem; background: #fff3e0; border-color: #F2811D; }
+        .btn-finish-float {
+            background: #25D366; color: white; border: none;
+            padding: 10px 30px; border-radius: 50px; font-weight: bold;
+            margin-top: 10px; cursor: pointer; animation: pulse 2s infinite;
+            display: none; /* O JS ativa isso */
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+    </style>
+
+    <!-- 3. SCHEMA.ORG GLOBAL -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "{{ .Site.Title }}",
+      "url": "{{ .Site.BaseURL }}",
+      "logo": "{{ "imagens/logomarca-chefbrico-metodo-gourmet-pratico.png" | relURL }}"
+    }
+    </script>
+    
+    {{ block "head" . }}{{ end }}
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+
+    <!-- A. CABEÇALHO -->
     {{ partial "header.html" . }}
-    <main>{{ block "main" . }}{{ end }}</main>
+
+    <!-- B. CONTEÚDO PRINCIPAL -->
+    <main id="main-content" style="min-height: 80vh;">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <!-- C. RODAPÉ -->
     {{ partial "footer.html" . }}
+
+    <!-- D. BARRA DE GAMIFICAÇÃO (Lógica Hugo: Só aparece em Receitas ou ChefBox) -->
+    {{ if or (eq .Section "receitas") (eq .Section "chefbox") (in .Permalink "sabores") }}
+    <aside id="chefbox-bar" class="chefbox-sticky-bar">
+        <!-- Texto de Status -->
+        <div class="bar-info" style="margin-bottom: 8px; font-size: 0.9rem; color: #333; font-weight: bold;">
+            <span id="game-status-text">Monte sua ChefBox VIP:</span>
+        </div>
+        
+        <!-- Slots (Bolinhas) -->
+        <div class="slots-wrapper" style="display: flex; gap: 10px;">
+            <div id="slot-1" class="slot-circle">1</div>
+            <div id="slot-2" class="slot-circle">2</div>
+            <div id="slot-3" class="slot-circle">3</div>
+            <div id="slot-4" class="slot-circle">4</div>
+            <div id="slot-5" class="slot-circle gift" title="Seu Presente!">🎁</div>
+        </div>
+
+        <!-- Botão Finalizar (Controlado pelo app.js) -->
+        <button id="btn-finish-game" class="btn-finish-float" onclick="openCheckoutModal()">
+            Finalizar Pedido R$ {{ .Site.Params.preco_kit }} ➜
+        </button>
+    </aside>
+    {% endif %} <!-- Fim da condicional -->
+
+    <!-- E. MODAL DE VENDAS (Sempre carregado, mas oculto) -->
     {{ partial "modal.html" . }}
-    <script src="/js/app.js"></script>
+
+    <!-- F. CÉREBRO JAVASCRIPT -->
+    <script src="{{ "js/app.js" | relURL }}"></script>
+    
+    {{ block "footer_scripts" . }}{{ end }}
 </body>
 </html>

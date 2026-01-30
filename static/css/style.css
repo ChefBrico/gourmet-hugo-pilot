@@ -159,3 +159,42 @@ body { background-color: var(--cor-creme); font-family: var(--fonte-corpo); marg
     border-top: 1px solid #f0f0f0;
     padding-top: 10px;
 }
+/* ==========================================================================
+   MOTOR DE ROLAGEM HORIZONTAL (A MECÂNICA DO CARROSSEL)
+   Isso substitui o "Grid" pelo "Trilho Infinito"
+   ========================================================================== */
+
+.trilho-carrossel {
+    display: flex; /* OBRIGATÓRIO: Coloca itens em linha, não em bloco */
+    gap: 20px;     /* Espaço entre os cards */
+    overflow-x: auto; /* Permite rolar para o lado */
+    padding: 20px 5px 40px 5px; /* Espaço para sombra */
+    
+    /* A FÍSICA DO SCROLL (APPLE FEEL) */
+    scroll-snap-type: x mandatory; /* Obriga a parar no meio do card */
+    -webkit-overflow-scrolling: touch; /* Aceleração de hardware no iPhone */
+    scrollbar-width: none; /* Esconde barra no Firefox */
+}
+
+/* Esconde barra no Chrome/Safari */
+.trilho-carrossel::-webkit-scrollbar { display: none; }
+
+/* O CARD INDIVIDUAL (O VAGÃO DO TREM) */
+.card-carrossel {
+    flex: 0 0 280px; /* TRAVA DE SEGURANÇA: Impede que o card encolha ou estique */
+    width: 280px;    /* Reforço para navegadores antigos */
+    scroll-snap-align: start; /* Onde o imã gruda */
+    
+    /* ESTÉTICA (Mantendo seu estilo) */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s;
+}
+
+.card-carrossel:hover { transform: translateY(-5px); }

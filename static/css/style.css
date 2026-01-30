@@ -61,3 +61,101 @@ body { background-color: var(--cor-creme); font-family: var(--fonte-corpo); marg
 .slots-wrapper { display: flex; gap: 10px; }
 .slot-circle { width: 50px; height: 50px; border-radius: 50%; background: #eee; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; background-size: cover; }
 .slot-circle.filled { background-color: white !important; border: 2px solid var(--cor-laranja); }
+
+/* ... MANTENHA TODO O SEU CSS ANTERIOR AQUI ... */
+
+/* ==========================================================================
+   9. MÓDULO CARROSSEL PREMIUM (APPLE STYLE) - ADIÇÃO NOVA
+   Isso ativa o "Arrastar" horizontal que faltava
+   ========================================================================== */
+
+/* O Container (A Pista de Rolagem) */
+.carousel-apple-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Permite rolar para o lado */
+    padding: 10px 20px 40px 20px; /* Espaço para a sombra não cortar */
+    scroll-snap-type: x mandatory; /* O Imã que trava o card no centro */
+    -webkit-overflow-scrolling: touch; /* Física de vidro do iPhone */
+    scrollbar-width: none; /* Esconde barra no Firefox */
+}
+/* Esconde barra no Chrome */
+.carousel-apple-track::-webkit-scrollbar { display: none; }
+
+/* O Card (O Item de Luxo) */
+.card-apple {
+    flex: 0 0 280px; /* LARGURA FIXA É O SEGREDO DO CARROSSEL */
+    scroll-snap-align: start; /* Onde o imã gruda */
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+/* Micro-interação: Levitar ao passar o mouse */
+.card-apple:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+/* Imagem do Card */
+.card-apple-img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    background-color: #f4f4f4; /* Fundo enquanto carrega */
+}
+
+/* Corpo do Card */
+.card-apple-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tipografia Interna */
+.card-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--cor-laranja);
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.card-title {
+    font-family: var(--fonte-titulo);
+    font-size: 1.1rem;
+    color: var(--cor-verde-escuro);
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Corta texto longo com ... */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Botão ou Preço no rodapé do card */
+.card-footer-row {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}

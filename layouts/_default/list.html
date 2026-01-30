@@ -1,26 +1,109 @@
 {{ define "main" }}
+
+<style>
+    .vitrine-header { text-align: center; margin: 40px 0 60px 0; padding: 0 20px; }
+    .vitrine-title { color: #014039; font-size: 2.5rem; margin-bottom: 10px; font-family: serif; }
+    
+    .vitrine-magica { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+        gap: 30px; 
+        padding: 0 20px 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* CARD DO PRODUTO (GASTRONÔMICO) */
+    .card-gastronomico {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+        position: relative;
+        border: 1px solid #f0f0f0;
+    }
+    .card-gastronomico:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
+    .card-img-wrapper { position: relative; height: 220px; overflow: hidden; }
+    .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .card-gastronomico:hover .card-img-wrapper img { transform: scale(1.05); }
+
+    /* Botão "+" Estilo Boutique */
+    .btn-plus-boutique {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        background: #F2811D;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        display: flex; align-items: center; justify-content: center;
+        text-decoration: none; /* Para funcionar como link */
+        line-height: 1;
+    }
+    .btn-plus-boutique:hover { background: #d66e15; transform: scale(1.1); }
+
+    .card-info { padding: 20px; }
+    .card-title { margin: 0 0 5px 0; font-size: 1.1rem; color: #014039; }
+    .card-price { display: block; font-weight: bold; color: #27ae60; font-size: 1.2rem; margin-top: 10px; }
+    
+    /* Estilo para Conteúdo (Sem Preço) */
+    .card-resumo { font-size: 0.9rem; color: #666; margin-top: 10px; line-height: 1.4; }
+    .btn-ler-mais { font-size: 0.8rem; color: #014039; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; margin-top: 15px; display: inline-block; }
+
+</style>
+
 <div class="container">
-    <div style="text-align: center; margin: 60px 0;">
-        <h1 style="font-family: var(--fonte-titulo); font-size: 2.5rem;">Nossa Coleção de Sabores</h1>
-        <p>Escolha 5 pratos para sua ChefBox VIP. Pague 4 e o 5º é presente!</p>
+    
+    <div class="vitrine-header">
+        <h1 class="vitrine-title">{{ .Title }}</h1>
+        {{ if .Description }}
+        <p style="color: #666; font-size: 1.1rem;">{{ .Description }}</p>
+        {{ else }}
+        <p style="color: #666;">Explore nossa seleção especial.</p>
+        {{ end }}
     </div>
 
     <div class="vitrine-magica">
+        
         {{ range .Pages }}
         <div class="card-gastronomico">
-            <div class="card-img-wrapper">
-                <img src="{{ .Params.image }}" alt="{{ .Title }}">
-                <button class="btn-plus-boutique" 
-                        onclick="addToGame('{{ .Title }}', {{ .Params.price }}, '{{ .Params.image }}', '{{ .Params.sku }}')">
-                    +
-                </button>
-            </div>
-            <div class="card-info">
-                <h3 class="card-title">{{ .Title }}</h3>
-                <span class="card-price">R$ {{ .Params.price }}</span>
-            </div>
+            
+            <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">
+                <div class="card-img-wrapper">
+                    <img src="{{ .Params.image | default "/imagens/placeholder.jpg" }}" alt="{{ .Title }}">
+                    
+                    {{ if .Params.price }}
+                        <a href="https://wa.me/{{ $.Site.Params.whatsapp_number }}?text=Olá, quero adicionar o {{ .Title }} ({{ .Params.sku }})" 
+                           class="btn-plus-boutique" 
+                           target="_blank"
+                           title="Pedir no WhatsApp">
+                           +
+                        </a>
+                    {{ end }}
+                </div>
+
+                <div class="card-info">
+                    <h3 class="card-title">{{ .Title }}</h3>
+                    
+                    {{ if .Params.price }}
+                        <span class="card-price">R$ {{ .Params.price }}</span>
+                    {{ else }}
+                        <p class="card-resumo">{{ .Summary | truncate 80 }}</p>
+                        <span class="btn-ler-mais">Ler Artigo ➝</span>
+                    {{ end }}
+                </div>
+            </a>
+
         </div>
         {{ end }}
+
     </div>
 </div>
 {{ end }}

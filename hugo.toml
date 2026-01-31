@@ -2,31 +2,52 @@ baseURL = 'https://gourmetpratico.com.br/'
 languageCode = 'pt-br'
 title = 'Gourmet Prático | Boutique de Tempo'
 
-# --- CONFIGURAÇÃO TÉCNICA (Robôs e SEO) ---
+# --- 1. CONFIGURAÇÃO TÉCNICA (O Cérebro) ---
 enableRobotsTXT = true
 canonifyURLs = true
 summaryLength = 160
+paginate = 12  # Paginação para vitrines de produtos
 
-# --- DADOS DO NEGÓCIO (ENTIDADES REAIS - Schema.org) ---
+# --- 2. PULO DO GATO AGÊNTICO (CRÍTICO) ---
+# Isso obriga o Hugo a gerar os arquivos para Robôs (JSON, TXT) além do HTML
+[outputs]
+  home = ["HTML", "RSS", "JSON", "TXT"] 
+  # HTML = Humanos
+  # JSON = Knowledge Graph (layouts/index.json)
+  # TXT  = Agente IA (layouts/index.llms.txt - renomear layout para index.txt se necessário ou usar mediaType customizado)
+
+# --- 3. DADOS DO NEGÓCIO (Single Source of Truth) ---
 [params]
-  # O SLOGAN OFICIAL (Não mude uma vírgula)
+  # IDENTIDADE
+  brand = "ChefBrico"
+  author = "Chef Maria Conceição"
   slogan = "Gourmet Prático é uma culinária saudável, sem desperdício de Tempo e Ingredientes na Cozinha!"
   description = "Método da Chef Maria Conceição. Refeições prontas em 18 minutos. Tecnologia de desidratação que preserva nutrientes."
-  author = "Chef Maria Conceição"
-  brand = "ChefBrico"
   
-  # A2P (Application to Person)
+  # A2P & COMMERCE (Vendas)
   whatsapp_number = "5561996659880" 
+  whatsapp_msg_base = "Olá Chef! Vim pelo site e quero saber mais sobre a ChefBox."
+  preco_kit = "132,00"
+  frete_aviso = "Entrega D+1 (Amanhã) Grátis no DF"
   
-  # Regra de Negócio (ChefBox)
-  preco_kit = "132,00" 
-  
-  # SEO Local (Entidade Geográfica)
+  # SEO LOCAL (Geo-Dados)
   city = "Brasília"
   region = "Distrito Federal"
   country = "BR"
+  currency = "BRL"
 
-# --- NAVEGAÇÃO ---
+# --- 4. MAPA DO SITE (Prioridade para Google) ---
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.8
+
+# --- 5. CATEGORIZAÇÃO (Para organizar Receitas) ---
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# --- 6. NAVEGAÇÃO ---
 [menus]
   [[menus.main]]
     name = 'O Método'
@@ -40,3 +61,7 @@ summaryLength = 160
     name = 'ChefBox (4+1)'
     pageRef = '/chefbox'
     weight = 30
+  [[menus.main]]
+    name = 'Onde Entregamos'
+    pageRef = '/entregas'
+    weight = 40

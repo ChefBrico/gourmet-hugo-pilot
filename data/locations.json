@@ -3,7 +3,7 @@
     "id": "asa-sul",
     "name": "Asa Sul",
     "zone": "Plano Piloto",
-    "delivery_time": "15-20 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Casal Gourmet",
     "geo": {
@@ -15,7 +15,7 @@
     "id": "asa-norte",
     "name": "Asa Norte",
     "zone": "Plano Piloto",
-    "delivery_time": "15-20 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Solteiro Prático",
     "geo": {
@@ -27,7 +27,7 @@
     "id": "lago-sul",
     "name": "Lago Sul",
     "zone": "Zona Nobre",
-    "delivery_time": "25-30 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Família Premium",
     "geo": {
@@ -39,7 +39,7 @@
     "id": "lago-norte",
     "name": "Lago Norte",
     "zone": "Zona Nobre",
-    "delivery_time": "25-30 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Vida Funcional",
     "geo": {
@@ -51,7 +51,7 @@
     "id": "sudoeste",
     "name": "Sudoeste",
     "zone": "Plano Piloto",
-    "delivery_time": "12-18 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Vida Funcional",
     "geo": {
@@ -63,7 +63,7 @@
     "id": "noroeste",
     "name": "Noroeste",
     "zone": "Expansão Nobre",
-    "delivery_time": "18-22 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Bairro Novo/Sustentável",
     "geo": {
@@ -75,7 +75,7 @@
     "id": "aguas-claras",
     "name": "Águas Claras",
     "zone": "Satélite Vertical",
-    "delivery_time": "35-45 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Família Dinâmica",
     "geo": {
@@ -87,7 +87,7 @@
     "id": "park-sul",
     "name": "Park Sul",
     "zone": "Zona Nobre",
-    "delivery_time": "20-25 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Viajante Airbnb",
     "geo": {
@@ -99,7 +99,7 @@
     "id": "esplanada",
     "name": "Esplanada dos Ministérios",
     "zone": "Governo",
-    "delivery_time": "15-20 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Executivo/Governo",
     "geo": {
@@ -111,7 +111,7 @@
     "id": "taguatinga-sul",
     "name": "Taguatinga Sul",
     "zone": "Satélite",
-    "delivery_time": "40-50 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Família Tradicional",
     "geo": {
@@ -123,7 +123,7 @@
     "id": "taguatinga-norte",
     "name": "Taguatinga Norte",
     "zone": "Satélite",
-    "delivery_time": "40-50 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Comércio Local",
     "geo": {
@@ -135,7 +135,7 @@
     "id": "guara",
     "name": "Guará I e II",
     "zone": "Intermediária",
-    "delivery_time": "25-30 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Trilheiro/Natureza",
     "geo": {
@@ -147,7 +147,7 @@
     "id": "grande-colorado",
     "name": "Grande Colorado",
     "zone": "Condomínios",
-    "delivery_time": "45-60 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Refúgio/Paz",
     "geo": {
@@ -159,7 +159,7 @@
     "id": "sia",
     "name": "SIA (Setor Indústria)",
     "zone": "Comercial",
-    "delivery_time": "20-25 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Trabalho/Indústria",
     "geo": {
@@ -171,7 +171,7 @@
     "id": "riacho-fundo",
     "name": "Riacho Fundo I",
     "zone": "Satélite",
-    "delivery_time": "35-45 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Conforto Familiar",
     "geo": {
@@ -183,7 +183,7 @@
     "id": "jardim-botanico",
     "name": "Jardim Botânico",
     "zone": "Condomínios",
-    "delivery_time": "30-40 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Saúde/Cerrado",
     "geo": {
@@ -195,7 +195,7 @@
     "id": "vicente-pires",
     "name": "Vicente Pires",
     "zone": "Satélite",
-    "delivery_time": "35-45 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Local Hero",
     "geo": {
@@ -207,7 +207,7 @@
     "id": "plano-piloto-centro",
     "name": "Plano Piloto (Centro)",
     "zone": "Central",
-    "delivery_time": "15-18 min",
+    "delivery_time": "Entrega D+1 (Amanhã)",
     "delivery_fee": 0.00,
     "persona": "Vida Urbana",
     "geo": {

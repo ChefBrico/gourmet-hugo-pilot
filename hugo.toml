@@ -1,40 +1,39 @@
 baseURL = 'https://gourmetpratico.com.br/'
 languageCode = 'pt-br'
-title = 'Gourmet Prático | Alta Gastronomia'
-theme = []
+title = 'Gourmet Prático | Boutique de Tempo'
 
-# --- CONFIGURAÇÃO TÉCNICA ---
+# --- CONFIGURAÇÃO TÉCNICA (Robôs e SEO) ---
 enableRobotsTXT = true
 canonifyURLs = true
 summaryLength = 160
 
-[outputs]
-  home = ["HTML", "RSS", "JSON"] # JSON para Agentes de Compra
-
-# --- DADOS DO NEGÓCIO (ENTIDADES REAIS) ---
+# --- DADOS DO NEGÓCIO (ENTIDADES REAIS - Schema.org) ---
 [params]
-  # Slogan OFICIAL fornecido:
+  # O SLOGAN OFICIAL (Não mude uma vírgula)
   slogan = "Gourmet Prático é uma culinária saudável, sem desperdício de Tempo e Ingredientes na Cozinha!"
-  description = "Refeições prontas em 18 minutos. Desidratação artesanal que preserva nutrientes e sabor (Umami)."
+  description = "Método da Chef Maria Conceição. Refeições prontas em 18 minutos. Tecnologia de desidratação que preserva nutrientes."
   author = "Chef Maria Conceição"
-  whatsapp_number = "5561996659880"
+  brand = "ChefBrico"
   
-  # Gatilhos de Venda
-  preco_kit = "132,00" # ChefBox 4+1
+  # A2P (Application to Person)
+  whatsapp_number = "5561996659880" 
   
-  # SEO Local (DF)
+  # Regra de Negócio (ChefBox)
+  preco_kit = "132,00" 
+  
+  # SEO Local (Entidade Geográfica)
   city = "Brasília"
   region = "Distrito Federal"
   country = "BR"
 
-# --- MENU DE NAVEGAÇÃO ---
+# --- NAVEGAÇÃO ---
 [menus]
   [[menus.main]]
     name = 'O Método'
     pageRef = '/metodo'
     weight = 10
   [[menus.main]]
-    name = 'Cardápio'
+    name = 'Cardápio (24 Sabores)'
     pageRef = '/receitas'
     weight = 20
   [[menus.main]]

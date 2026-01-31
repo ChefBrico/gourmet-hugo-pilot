@@ -1,71 +1,211 @@
 {{ define "main" }}
 
-<section style="background: #014039; color: white; padding: 60px 20px; text-align: center;">
-    <h1 style="font-family: serif; font-size: 2.5rem; color: #bfb084;">{{ .Site.Params.slogan }}</h1>
-    <p style="font-size: 1.2rem; margin-bottom: 30px;">{{ .Site.Params.description }}</p>
-    <a href="/chefbox/" style="background: #F2811D; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold;">
-        Montar ChefBox (4+1)
-    </a>
+<style>
+    :root {
+        --cor-brand: #014039;       /* Verde Institucional */
+        --cor-gold: #bfb084;        /* Dourado Nobre */
+        --cor-action: #F2811D;      /* Laranja CTA */
+        --bg-paper: #ffffff;
+        --font-serif: 'Times New Roman', serif; /* Autoridade */
+        --font-sans: system-ui, -apple-system, sans-serif; /* Modernidade */
+    }
+
+    body { background-color: var(--bg-paper); color: var(--cor-brand); }
+
+    /* 1. HERO SECTION (Capa de Revista) */
+    .hero-cinematic {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 20px;
+        background: radial-gradient(circle, rgba(1,64,57,0.9) 0%, rgba(1,64,57,1) 100%), url('/imagens/fundo-cozinha-gourmet.jpg');
+        background-size: cover;
+        background-attachment: fixed; /* Efeito Parallax Apple */
+        color: white;
+    }
+
+    .hero-title {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 5vw, 3.5rem); /* Responsivo */
+        max-width: 900px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .btn-action {
+        background: var(--cor-action);
+        color: white;
+        padding: 18px 45px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: transform 0.2s;
+        box-shadow: 0 10px 30px rgba(242, 129, 29, 0.4);
+    }
+    .btn-action:hover { transform: scale(1.05); }
+
+    /* 2. O MÉTODO (Design Editorial Vertical) */
+    .section-editorial { padding: 80px 20px; max-width: 1000px; margin: 0 auto; }
+    
+    .pillar-row {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 80px; /* Respiro Vertical */
+    }
+    /* Inverte a ordem foto/texto nos pares */
+    .pillar-row:nth-child(even) { flex-direction: row-reverse; }
+
+    @media(max-width: 768px) {
+        .pillar-row, .pillar-row:nth-child(even) { flex-direction: column; text-align: center; }
+    }
+
+    .pillar-content h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 15px; }
+    .pillar-content p { font-size: 1.1rem; line-height: 1.8; color: #555; }
+    
+    .pillar-icon-box {
+        font-size: 4rem;
+        color: var(--cor-action);
+        flex-shrink: 0;
+        width: 120px; height: 120px;
+        display: flex; align-items: center; justify-content: center;
+        border: 2px solid var(--cor-gold);
+        border-radius: 50%;
+    }
+
+    /* 3. A VERDADE (Bloco de Texto Rico) */
+    .truth-box {
+        background: #fdfbf7;
+        padding: 60px 20px;
+        text-align: center;
+        border-top: 1px solid var(--cor-gold);
+        border-bottom: 1px solid var(--cor-gold);
+    }
+
+    /* 4. VITRINE (Grid Limpo) */
+    .grid-vitrine {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 0 20px;
+    }
+    
+    .card-clean {
+        text-decoration: none; color: inherit;
+        border-radius: 8px; overflow: hidden;
+        transition: transform 0.3s;
+    }
+    .card-clean:hover { transform: translateY(-5px); }
+    .card-clean img { width: 100%; height: 250px; object-fit: cover; }
+    .card-clean h3 { font-family: var(--font-serif); margin: 15px 0 5px 0; }
+</style>
+
+<section class="hero-cinematic">
+    <div style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--cor-gold); overflow: hidden; margin-bottom: 30px;">
+        <img src="/imagens/maria-conceicao-agrovillage-caminho-chefbrico.png" alt="Chef Maria Conceição" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    
+    <h1 class="hero-title">
+        {{ .Site.Params.slogan }}
+    </h1>
+    
+    <div style="margin-top: 20px;">
+        <a href="/chefbox/" class="btn-action">Montar ChefBox (4+1) 🎁</a>
+    </div>
 </section>
 
-<section style="padding: 40px 0; max-width: 100vw; overflow: hidden;">
-    <div class="container">
-        <h2 style="color: #014039; border-left: 5px solid #F2811D; padding-left: 15px; margin-bottom: 20px;">
-            Comece por Aqui: O Método
-        </h2>
+<section class="section-editorial">
+    <div style="text-align: center; margin-bottom: 60px;">
+        <span style="color: var(--cor-gold); text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">O Método</span>
+        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-top: 10px;">A Ciência do Afeto</h2>
     </div>
 
-    <div class="trilho-carrossel container">
-        
-        {{ range (where .Site.RegularPages "Section" "metodo") }}
-        <a href="{{ .Permalink }}" class="card-carrossel">
-            <img src="{{ .Params.image | default "/imagens/placeholder.jpg" }}" style="width: 100%; height: 160px; object-fit: cover;">
-            <div style="padding: 15px;">
-                <span style="font-size: 0.7rem; font-weight: bold; color: #F2811D; text-transform: uppercase;">PILAR</span>
-                <h3 style="margin: 5px 0; color: #014039; font-size: 1.1rem;">{{ .Title }}</h3>
-                <p style="font-size: 0.85rem; color: #666; margin: 0;">{{ .Summary | truncate 60 }}</p>
-            </div>
-        </a>
-        {{ end }}
+    <div class="pillar-row">
+        <div class="pillar-icon-box">⏳</div>
+        <div class="pillar-content">
+            <h3>1. Despensa Inteligente</h3>
+            <p>
+                Transformamos o perecível em durável. Através da nossa técnica de desidratação, 
+                você tem ingredientes de feira prontos para uso por até <strong>12 meses</strong>, 
+                eliminando o desperdício de vegetais na geladeira.
+            </p>
+        </div>
+    </div>
 
+    <div class="pillar-row">
+        <div class="pillar-icon-box">🥘</div>
+        <div class="pillar-content">
+            <h3>2. Panela Única (One Pot)</h3>
+            <p>
+                Eficiência máxima. Nossas receitas são projetadas para serem preparadas em 
+                <strong>uma única panela em apenas 18 minutos</strong>. 
+                Menos louça, mais tempo para você.
+            </p>
+        </div>
+    </div>
+
+    <div class="pillar-row">
+        <div class="pillar-icon-box">✨</div>
+        <div class="pillar-content">
+            <h3>3. Cozinha Criativa</h3>
+            <p>
+                Nós damos os 80% (a base gourmet), você dá os 20% (o seu toque final). 
+                Adicione um queijo, um vinho ou ervas frescas e seja o chef da sua própria casa.
+            </p>
+        </div>
     </div>
 </section>
 
-<section style="padding: 40px 0; background: #f9f9f9; max-width: 100vw; overflow: hidden;">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 20px;">
-        <h2 style="color: #014039; border-left: 5px solid #014039; padding-left: 15px; margin: 0;">
-            Nossos Sabores
-        </h2>
-        <a href="/receitas/" style="color: #014039; font-weight: bold;">Ver Todos →</a>
+<section class="truth-box">
+    <div class="container" style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--cor-brand);">A Verdade sobre o 5º Sabor</h2>
+        <p style="font-size: 1.1rem; margin-top: 20px; line-height: 1.6;">
+            O Nosso Segredo é a <strong>Desidratação Artesanal</strong>. Diferente dos processos industriais, 
+            é feita em baixa temperatura, preservando nutrientes e concentrando o sabor natural (Umami).
+        </p>
+        <div style="margin-top: 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+            <h3 style="color: var(--cor-action); margin-top: 0;">Por que a ChefBox é 4+1?</h3>
+            <p>Não é apenas marketing. É a matemática do afeto.</p>
+            <ul style="text-align: left; margin-top: 20px; line-height: 1.8;">
+                <li>🎁 <strong>É um Presente Real:</strong> Desconto efetivo de 20%.</li>
+                <li>👅 <strong>Para Experimentar:</strong> Use o 5º item para provar algo novo sem risco.</li>
+                <li>👩‍🍳 <strong>Convite à Bricolage:</strong> Use o item extra para criar sua receita.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section style="padding: 80px 0; background: #fafafa;">
+    <div style="text-align: center;">
+        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--cor-brand);">Nossos Sabores</h2>
+        <p>Risotos, Sopas Funcionais, Refeições Integrais e Empório.</p>
     </div>
 
-    <div class="trilho-carrossel container">
-        
+    <div class="grid-vitrine">
         {{ range first 8 (where .Site.RegularPages "Section" "receitas") }}
-        <a href="{{ .Permalink }}" class="card-carrossel">
-            <img src="{{ .Params.image | default "/imagens/placeholder.jpg" }}" style="width: 100%; height: 160px; object-fit: cover;">
-            
-            <div style="position: absolute; top: 10px; right: 10px; background: white; padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 0.8rem; color: #014039; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-                R$ {{ .Params.price }}
-            </div>
-
-            <div style="padding: 15px;">
-                <h3 style="margin: 0 0 5px 0; color: #014039; font-size: 1rem;">{{ .Title }}</h3>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+        <a href="{{ .Permalink }}" class="card-clean">
+            <img src="{{ .Params.image | default "/imagens/placeholder.jpg" }}" alt="{{ .Title }}">
+            <div style="padding: 15px; background: white;">
+                <span style="font-size: 0.7rem; text-transform: uppercase; color: #999; letter-spacing: 1px;">{{ .Params.category }}</span>
+                <h3 style="font-size: 1.2rem; color: var(--cor-brand);">{{ .Title }}</h3>
+                <div style="display: flex; justify-content: space-between; margin-top: 10px; align-items: center;">
+                    <span style="font-weight: bold; color: var(--cor-action);">R$ {{ .Params.price }}</span>
                     <span style="font-size: 0.8rem; color: #777;">{{ .Params.sku }}</span>
-                    <span style="color: #F2811D; font-weight: bold; font-size: 0.9rem;">+ Adicionar</span>
                 </div>
             </div>
         </a>
         {{ end }}
+    </div>
 
-        <a href="/chefbox/" class="card-carrossel" style="border: 2px solid #F2811D; background: #fff3e0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-            <div style="font-size: 3rem;">🎁</div>
-            <h3 style="color: #F2811D; margin: 10px 0;">Monte sua Box</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 15px;">Pague 4, Leve 5</p>
-            <span style="background: #F2811D; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Começar</span>
-        </a>
-
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="/chefbox/" class="btn-action">Montar Minha ChefBox Agora ➝</a>
     </div>
 </section>
 

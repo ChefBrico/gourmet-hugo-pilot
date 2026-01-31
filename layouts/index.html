@@ -1,211 +1,155 @@
 {{ define "main" }}
 
 <style>
+    /* DESIGN SYSTEM: GOURMET APPLE */
     :root {
-        --cor-brand: #014039;       /* Verde Institucional */
-        --cor-gold: #bfb084;        /* Dourado Nobre */
-        --cor-action: #F2811D;      /* Laranja CTA */
-        --bg-paper: #ffffff;
+        --brand-dark: #014039;  /* Verde ChefBrico */
+        --brand-gold: #bfb084;  /* Dourado Nobre */
+        --brand-cta: #F2811D;   /* Laranja Ação */
         --font-serif: 'Times New Roman', serif; /* Autoridade */
-        --font-sans: system-ui, -apple-system, sans-serif; /* Modernidade */
+        --font-sans: system-ui, -apple-system, sans-serif; /* Leitura */
     }
 
-    body { background-color: var(--bg-paper); color: var(--cor-brand); }
-
-    /* 1. HERO SECTION (Capa de Revista) */
-    .hero-cinematic {
-        min-height: 80vh;
+    /* 1. HERO: IMPACTO VISUAL (Full Screen) */
+    .hero-apple {
+        min-height: 90vh;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        text-align: center;
-        padding: 40px 20px;
-        background: radial-gradient(circle, rgba(1,64,57,0.9) 0%, rgba(1,64,57,1) 100%), url('/imagens/fundo-cozinha-gourmet.jpg');
-        background-size: cover;
-        background-attachment: fixed; /* Efeito Parallax Apple */
-        color: white;
-    }
-
-    .hero-title {
-        font-family: var(--font-serif);
-        font-size: clamp(2rem, 5vw, 3.5rem); /* Responsivo */
-        max-width: 900px;
-        line-height: 1.2;
-        margin-bottom: 30px;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
-
-    .btn-action {
-        background: var(--cor-action);
-        color: white;
-        padding: 18px 45px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.1rem;
-        transition: transform 0.2s;
-        box-shadow: 0 10px 30px rgba(242, 129, 29, 0.4);
-    }
-    .btn-action:hover { transform: scale(1.05); }
-
-    /* 2. O MÉTODO (Design Editorial Vertical) */
-    .section-editorial { padding: 80px 20px; max-width: 1000px; margin: 0 auto; }
-    
-    .pillar-row {
-        display: flex;
         align-items: center;
-        gap: 40px;
-        margin-bottom: 80px; /* Respiro Vertical */
-    }
-    /* Inverte a ordem foto/texto nos pares */
-    .pillar-row:nth-child(even) { flex-direction: row-reverse; }
-
-    @media(max-width: 768px) {
-        .pillar-row, .pillar-row:nth-child(even) { flex-direction: column; text-align: center; }
-    }
-
-    .pillar-content h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 15px; }
-    .pillar-content p { font-size: 1.1rem; line-height: 1.8; color: #555; }
-    
-    .pillar-icon-box {
-        font-size: 4rem;
-        color: var(--cor-action);
-        flex-shrink: 0;
-        width: 120px; height: 120px;
-        display: flex; align-items: center; justify-content: center;
-        border: 2px solid var(--cor-gold);
-        border-radius: 50%;
-    }
-
-    /* 3. A VERDADE (Bloco de Texto Rico) */
-    .truth-box {
-        background: #fdfbf7;
-        padding: 60px 20px;
         text-align: center;
-        border-top: 1px solid var(--cor-gold);
-        border-bottom: 1px solid var(--cor-gold);
+        background: radial-gradient(circle, rgba(1,64,57,0.85), rgba(1,64,57,1)), url('/imagens/fundo-cozinha-gourmet.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        color: white;
+        padding: 20px;
+    }
+    
+    .hero-slogan {
+        font-family: var(--font-serif);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.1;
+        max-width: 1000px;
+        margin-bottom: 30px;
+        text-shadow: 0 5px 20px rgba(0,0,0,0.4);
     }
 
-    /* 4. VITRINE (Grid Limpo) */
-    .grid-vitrine {
+    /* 2. FLUXO EDITORIAL (O Método) */
+    .section-method { padding: 100px 20px; max-width: 900px; margin: 0 auto; }
+    
+    .editorial-block {
+        margin-bottom: 120px; /* Muito respiro vertical */
+        text-align: center;
+    }
+    
+    .editorial-icon { font-size: 4rem; margin-bottom: 20px; display: block; }
+    
+    .editorial-title {
+        font-family: var(--font-serif);
+        font-size: 2.5rem;
+        color: var(--brand-dark);
+        margin-bottom: 20px;
+    }
+    
+    .editorial-text {
+        font-family: var(--font-sans);
+        font-size: 1.3rem;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    /* 3. VITRINE MASONRY (As Receitas) */
+    .section-collection { background: #fcfbf9; padding: 100px 20px; }
+    .grid-gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 40px;
         max-width: 1200px;
         margin: 60px auto;
-        padding: 0 20px;
     }
     
-    .card-clean {
-        text-decoration: none; color: inherit;
-        border-radius: 8px; overflow: hidden;
+    .card-vertical {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         transition: transform 0.3s;
+        text-decoration: none; color: inherit;
     }
-    .card-clean:hover { transform: translateY(-5px); }
-    .card-clean img { width: 100%; height: 250px; object-fit: cover; }
-    .card-clean h3 { font-family: var(--font-serif); margin: 15px 0 5px 0; }
+    .card-vertical:hover { transform: translateY(-10px); }
+    .card-vertical img { width: 100%; height: 350px; object-fit: cover; } /* FOTO GIGANTE */
+
 </style>
 
-<section class="hero-cinematic">
-    <div style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--cor-gold); overflow: hidden; margin-bottom: 30px;">
+<section class="hero-apple">
+    <div style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--brand-gold); overflow: hidden; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
         <img src="/imagens/maria-conceicao-agrovillage-caminho-chefbrico.png" alt="Chef Maria Conceição" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
     
-    <h1 class="hero-title">
+    <h1 class="hero-slogan">
         {{ .Site.Params.slogan }}
     </h1>
     
-    <div style="margin-top: 20px;">
-        <a href="/chefbox/" class="btn-action">Montar ChefBox (4+1) 🎁</a>
-    </div>
+    <a href="/chefbox/" style="background: var(--brand-cta); color: white; padding: 20px 50px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; text-decoration: none; box-shadow: 0 10px 30px rgba(242, 129, 29, 0.4);">
+        Montar ChefBox (4+1) 🎁
+    </a>
 </section>
 
-<section class="section-editorial">
-    <div style="text-align: center; margin-bottom: 60px;">
-        <span style="color: var(--cor-gold); text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">O Método</span>
-        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-top: 10px;">A Ciência do Afeto</h2>
+<section class="section-method">
+    <div style="text-align: center; margin-bottom: 80px;">
+        <span style="color: var(--brand-cta); text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">A Filosofia</span>
+        <h2 style="font-size: 3rem; font-family: var(--font-serif); margin-top: 10px; color: var(--brand-dark);">Boutique de Tempo</h2>
     </div>
 
-    <div class="pillar-row">
-        <div class="pillar-icon-box">⏳</div>
-        <div class="pillar-content">
-            <h3>1. Despensa Inteligente</h3>
-            <p>
-                Transformamos o perecível em durável. Através da nossa técnica de desidratação, 
-                você tem ingredientes de feira prontos para uso por até <strong>12 meses</strong>, 
-                eliminando o desperdício de vegetais na geladeira.
-            </p>
-        </div>
-    </div>
-
-    <div class="pillar-row">
-        <div class="pillar-icon-box">🥘</div>
-        <div class="pillar-content">
-            <h3>2. Panela Única (One Pot)</h3>
-            <p>
-                Eficiência máxima. Nossas receitas são projetadas para serem preparadas em 
-                <strong>uma única panela em apenas 18 minutos</strong>. 
-                Menos louça, mais tempo para você.
-            </p>
-        </div>
-    </div>
-
-    <div class="pillar-row">
-        <div class="pillar-icon-box">✨</div>
-        <div class="pillar-content">
-            <h3>3. Cozinha Criativa</h3>
-            <p>
-                Nós damos os 80% (a base gourmet), você dá os 20% (o seu toque final). 
-                Adicione um queijo, um vinho ou ervas frescas e seja o chef da sua própria casa.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section class="truth-box">
-    <div class="container" style="max-width: 800px; margin: 0 auto;">
-        <h2 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--cor-brand);">A Verdade sobre o 5º Sabor</h2>
-        <p style="font-size: 1.1rem; margin-top: 20px; line-height: 1.6;">
-            O Nosso Segredo é a <strong>Desidratação Artesanal</strong>. Diferente dos processos industriais, 
-            é feita em baixa temperatura, preservando nutrientes e concentrando o sabor natural (Umami).
+    <div class="editorial-block">
+        <span class="editorial-icon">⏳</span>
+        <h3 class="editorial-title">1. Economia de Tempo</h3>
+        <p class="editorial-text">
+            Não é apenas comida. É tempo de vida. Nossas receitas são projetadas para ficarem prontas em <strong>18 minutos</strong>, usando apenas uma panela.
         </p>
-        <div style="margin-top: 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-            <h3 style="color: var(--cor-action); margin-top: 0;">Por que a ChefBox é 4+1?</h3>
-            <p>Não é apenas marketing. É a matemática do afeto.</p>
-            <ul style="text-align: left; margin-top: 20px; line-height: 1.8;">
-                <li>🎁 <strong>É um Presente Real:</strong> Desconto efetivo de 20%.</li>
-                <li>👅 <strong>Para Experimentar:</strong> Use o 5º item para provar algo novo sem risco.</li>
-                <li>👩‍🍳 <strong>Convite à Bricolage:</strong> Use o item extra para criar sua receita.</li>
-            </ul>
-        </div>
+    </div>
+
+    <div class="editorial-block">
+        <span class="editorial-icon">🌿</span>
+        <h3 class="editorial-title">2. Zero Desperdício</h3>
+        <p class="editorial-text">
+            O segredo da <strong>Desidratação Artesanal</strong>. Ingredientes que duram meses na despensa, preservando nutrientes e sabor, sem estragar na geladeira.
+        </p>
+    </div>
+
+    <div class="editorial-block">
+        <span class="editorial-icon">❤️</span>
+        <h3 class="editorial-title">3. O 5º Sabor (Umami)</h3>
+        <p class="editorial-text">
+            Nós damos 80% (a base gourmet), você dá os 20% (seu toque). E na <strong>ChefBox</strong>, o 5º item é matematicamente um presente (20% off) para você experimentar o novo.
+        </p>
     </div>
 </section>
 
-<section style="padding: 80px 0; background: #fafafa;">
+<section class="section-collection">
     <div style="text-align: center;">
-        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--cor-brand);">Nossos Sabores</h2>
-        <p>Risotos, Sopas Funcionais, Refeições Integrais e Empório.</p>
+        <h2 style="font-size: 3rem; font-family: var(--font-serif); color: var(--brand-dark);">Nossa Coleção</h2>
+        <p style="font-size: 1.2rem; color: #666;">Risotos, Sopas, Integrais e Empório.</p>
     </div>
 
-    <div class="grid-vitrine">
+    <div class="grid-gallery">
         {{ range first 8 (where .Site.RegularPages "Section" "receitas") }}
-        <a href="{{ .Permalink }}" class="card-clean">
+        <a href="{{ .Permalink }}" class="card-vertical">
             <img src="{{ .Params.image | default "/imagens/placeholder.jpg" }}" alt="{{ .Title }}">
-            <div style="padding: 15px; background: white;">
-                <span style="font-size: 0.7rem; text-transform: uppercase; color: #999; letter-spacing: 1px;">{{ .Params.category }}</span>
-                <h3 style="font-size: 1.2rem; color: var(--cor-brand);">{{ .Title }}</h3>
-                <div style="display: flex; justify-content: space-between; margin-top: 10px; align-items: center;">
-                    <span style="font-weight: bold; color: var(--cor-action);">R$ {{ .Params.price }}</span>
-                    <span style="font-size: 0.8rem; color: #777;">{{ .Params.sku }}</span>
+            <div style="padding: 25px;">
+                <span style="font-size: 0.8rem; color: #999; text-transform: uppercase; letter-spacing: 1px;">{{ .Params.category }}</span>
+                <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--brand-dark); margin: 10px 0;">{{ .Title }}</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                    <span style="color: var(--brand-cta); font-weight: bold; font-size: 1.1rem;">R$ {{ .Params.price }}</span>
+                    <span style="font-size: 0.9rem; color: #ccc;">{{ .Params.sku }}</span>
                 </div>
             </div>
         </a>
         {{ end }}
     </div>
 
-    <div style="text-align: center; margin-top: 40px;">
-        <a href="/chefbox/" class="btn-action">Montar Minha ChefBox Agora ➝</a>
+    <div style="text-align: center; margin-top: 60px;">
+        <a href="/receitas/" style="color: var(--brand-dark); font-weight: bold; font-size: 1.2rem; text-decoration: underline;">Ver Catálogo Completo →</a>
     </div>
 </section>
 

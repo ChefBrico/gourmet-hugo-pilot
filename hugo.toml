@@ -1,25 +1,43 @@
-baseURL = 'https://www.gourmetpratico.com.br/'
+baseURL = 'https://gourmetpratico.com.br/'
 languageCode = 'pt-br'
-title = 'Gourmet Prático | Chef Maria Conceição'
+title = 'Gourmet Prático | Alta Gastronomia'
 theme = []
 
+# --- CONFIGURAÇÃO TÉCNICA ---
+enableRobotsTXT = true
+canonifyURLs = true
+summaryLength = 160
+
 [outputs]
-  home = ["HTML", "RSS", "JSON"] # JSON cria a API para o ChefBox
-  section = ["HTML"]
-  page = ["HTML"]
+  home = ["HTML", "RSS", "JSON"] # JSON para Agentes de Compra
 
+# --- DADOS DO NEGÓCIO (ENTIDADES REAIS) ---
 [params]
-  slogan = "Gourmet Prático: uma culinária saudável, sem desperdício de Tempo e Ingredientes na sua Cozinha!"
-  author = "Maria Conceição"
-  premio = "Vencedora do Prêmio Sebrae Mulher de Negócios"
-  whatsapp_number = "5561996659880" # Padronizado para o Hugo ler
-  preco_kit = 132.00
-  cnpj = "36.014.833/0001-59"
-  description = "Psicóloga de formação e Chef premiada pelo Sebrae. Criadora do 'Método Gourmet Prático' e da 'ChefBox'."
+  # Slogan OFICIAL fornecido:
+  slogan = "Gourmet Prático é uma culinária saudável, sem desperdício de Tempo e Ingredientes na Cozinha!"
+  description = "Refeições prontas em 18 minutos. Desidratação artesanal que preserva nutrientes e sabor (Umami)."
+  author = "Chef Maria Conceição"
+  whatsapp_number = "5561996659880"
+  
+  # Gatilhos de Venda
+  preco_kit = "132,00" # ChefBox 4+1
+  
+  # SEO Local (DF)
+  city = "Brasília"
+  region = "Distrito Federal"
+  country = "BR"
 
-[permalinks]
-  receitas = "/sabores/:slug/"
-  metodo = "/metodo/:slug/"
-
-[minify]
-  minifyOutput = true
+# --- MENU DE NAVEGAÇÃO ---
+[menus]
+  [[menus.main]]
+    name = 'O Método'
+    pageRef = '/metodo'
+    weight = 10
+  [[menus.main]]
+    name = 'Cardápio'
+    pageRef = '/receitas'
+    weight = 20
+  [[menus.main]]
+    name = 'ChefBox (4+1)'
+    pageRef = '/chefbox'
+    weight = 30

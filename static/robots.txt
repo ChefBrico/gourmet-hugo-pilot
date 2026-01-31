@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Mapa do Site para Agentes e Google
+Sitemap: https://gourmetpratico.com.br/sitemap.xml
+
+# Regras para IAs (Permitir leitura para vendas)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
